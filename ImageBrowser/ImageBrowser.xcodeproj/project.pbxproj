@@ -22,6 +22,7 @@
 		2D4EEAD31E20327600DD3738 /* nssl0049.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEAC91E20327600DD3738 /* nssl0049.jpg */; };
 		2D4EEAD41E20327600DD3738 /* nssl0051.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEACA1E20327600DD3738 /* nssl0051.jpg */; };
 		2D4EEAD51E20327600DD3738 /* nssl0091.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEACB1E20327600DD3738 /* nssl0091.jpg */; };
+		2D4EEAD71E204C4E00DD3738 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EEAD61E204C4E00DD3738 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		2D4EEAC91E20327600DD3738 /* nssl0049.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0049.jpg; sourceTree = "<group>"; };
 		2D4EEACA1E20327600DD3738 /* nssl0051.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0051.jpg; sourceTree = "<group>"; };
 		2D4EEACB1E20327600DD3738 /* nssl0091.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0091.jpg; sourceTree = "<group>"; };
+		2D4EEAD61E204C4E00DD3738 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				2D4EEAAF1E20316500DD3738 /* AppDelegate.swift */,
 				2D4EEAB11E20316500DD3738 /* ViewController.swift */,
+				2D4EEAD61E204C4E00DD3738 /* DetailViewController.swift */,
 				2D4EEAB31E20316500DD3738 /* Main.storyboard */,
 				2D4EEAB61E20316500DD3738 /* Assets.xcassets */,
 				2D4EEAB81E20316500DD3738 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4EEAD71E204C4E00DD3738 /* DetailViewController.swift in Sources */,
 				2D4EEAB21E20316500DD3738 /* ViewController.swift in Sources */,
 				2D4EEAB01E20316500DD3738 /* AppDelegate.swift in Sources */,
 			);
