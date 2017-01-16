@@ -24,6 +24,7 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+       
         
         print(pictures)
     }
@@ -38,6 +39,12 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            viewController.selectedImage = pictures[indexPath.row]
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {
