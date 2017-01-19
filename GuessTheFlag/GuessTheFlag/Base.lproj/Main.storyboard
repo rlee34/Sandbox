@@ -22,35 +22,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNf-Uk-Qsa">
-                                <rect key="frame" x="87" y="135" width="200" height="100"/>
+                                <rect key="frame" x="87" y="112" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BwG-I8-yRk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZp-jX-dmW">
-                                <rect key="frame" x="87" y="301" width="200" height="100"/>
+                                <rect key="frame" x="87" y="248" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yS9-5R-7CK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-F5-Xos">
-                                <rect key="frame" x="87" y="465" width="200" height="100"/>
+                                <rect key="frame" x="87" y="384" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eFo-VU-uXr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current score is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL8-Sw-WLj">
+                                <rect key="frame" x="97" y="577" width="181" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2G-Xm-VqX">
+                                <rect key="frame" x="187" y="548" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dZp-jX-dmW" firstAttribute="top" secondItem="VNf-Uk-Qsa" secondAttribute="bottom" constant="66" id="3ix-Um-3P7"/>
+                            <constraint firstItem="dZp-jX-dmW" firstAttribute="top" secondItem="VNf-Uk-Qsa" secondAttribute="bottom" constant="36" id="3ix-Um-3P7"/>
+                            <constraint firstItem="iL8-Sw-WLj" firstAttribute="top" secondItem="pwu-F5-Xos" secondAttribute="bottom" constant="93" id="9vA-I1-8Kg"/>
                             <constraint firstItem="VNf-Uk-Qsa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C2p-uv-WY8"/>
                             <constraint firstItem="dZp-jX-dmW" firstAttribute="centerX" secondItem="VNf-Uk-Qsa" secondAttribute="centerX" id="FqW-qP-123"/>
                             <constraint firstItem="pwu-F5-Xos" firstAttribute="centerX" secondItem="dZp-jX-dmW" secondAttribute="centerX" id="Nqx-CY-Ddo"/>
-                            <constraint firstItem="VNf-Uk-Qsa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="71" id="sM7-hE-9SS"/>
-                            <constraint firstItem="pwu-F5-Xos" firstAttribute="top" secondItem="dZp-jX-dmW" secondAttribute="bottom" constant="64" id="uou-sz-gJx"/>
+                            <constraint firstItem="N2G-Xm-VqX" firstAttribute="centerX" secondItem="pwu-F5-Xos" secondAttribute="centerX" id="Ssv-gV-fcr"/>
+                            <constraint firstItem="VNf-Uk-Qsa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="48" id="sM7-hE-9SS"/>
+                            <constraint firstItem="pwu-F5-Xos" firstAttribute="top" secondItem="dZp-jX-dmW" secondAttribute="bottom" constant="36" id="uou-sz-gJx"/>
+                            <constraint firstItem="iL8-Sw-WLj" firstAttribute="centerX" secondItem="pwu-F5-Xos" secondAttribute="centerX" id="x60-BN-rhy"/>
+                            <constraint firstItem="N2G-Xm-VqX" firstAttribute="top" secondItem="pwu-F5-Xos" secondAttribute="bottom" constant="64" id="xZc-j1-SFh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s0B-hu-7pp"/>
@@ -58,6 +74,8 @@
                         <outlet property="button1" destination="VNf-Uk-Qsa" id="XF8-1r-ggS"/>
                         <outlet property="button2" destination="dZp-jX-dmW" id="bdk-7E-oby"/>
                         <outlet property="button3" destination="pwu-F5-Xos" id="beF-Hf-ddf"/>
+                        <outlet property="scoreLabel" destination="iL8-Sw-WLj" id="yGS-nl-dvx"/>
+                        <outlet property="toastLabel" destination="N2G-Xm-VqX" id="pGN-Sa-gvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var toastLabel: UILabel!
     
     var countries = [String]()
     var correctAnswer = 0
@@ -54,14 +56,21 @@ class ViewController: UIViewController {
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
+            toastLabel.text = title
         } else {
             title = "Wrong"
             score -= 1
+            toastLabel.text = title
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        present(ac, animated: true)
+        scoreLabel.text = "Your current score is: \(score)"
+        askQuestion()
+
+//        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+//        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+//        present(ac, animated: true)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
