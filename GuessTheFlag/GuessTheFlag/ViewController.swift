@@ -5,6 +5,7 @@
 //  Created by Ryan Lee on 1/16/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
+
 import GameplayKit
 import UIKit
 
@@ -18,11 +19,11 @@ class ViewController: UIViewController {
     
     var countries = [String]()
     var correctAnswer = 0
+    var lastAnswer = ""
     var score = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
@@ -35,22 +36,26 @@ class ViewController: UIViewController {
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
         askQuestion()
-        
-        
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
-        countries = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: countries) as! [String]
         
-        button1.setImage(UIImage(named: countries[0]), for: .normal)
-        button2.setImage(UIImage(named: countries[1]), for: .normal)
-        button3.setImage(UIImage(named: countries[2]), for: .normal)
+        repeat {
+            
+            countries = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: countries) as! [String]
         
-        correctAnswer = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
-        title = countries[correctAnswer].uppercased()
+            button1.setImage(UIImage(named: countries[0]), for: .normal)
+            button2.setImage(UIImage(named: countries[1]), for: .normal)
+            button3.setImage(UIImage(named: countries[2]), for: .normal)
+        
+            correctAnswer = GKRandomSource.sharedRandom().nextInt(upperBound: 3)
+            title = countries[correctAnswer].uppercased()
+            
+        } while countries[correctAnswer] == lastAnswer
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
         var title: String
         
         if sender.tag == correctAnswer {
@@ -64,20 +69,13 @@ class ViewController: UIViewController {
         }
         
         scoreLabel.text = "Your current score is: \(score)"
+        lastAnswer = countries[correctAnswer]
         askQuestion()
-
-//        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-//        present(ac, animated: true)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
 
 }
 
