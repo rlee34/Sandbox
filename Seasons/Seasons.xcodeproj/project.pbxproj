@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D4EEB1D1E3296AE00DD3738 /* TitlePage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEB1C1E3296AE00DD3738 /* TitlePage.sks */; };
+		2D4EEB211E32A31200DD3738 /* TitlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EEB201E32A31200DD3738 /* TitlePage.swift */; };
 		8244F5791E02C69F00FF6E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244F5781E02C69F00FF6E15 /* AppDelegate.swift */; };
 		8244F57B1E02C69F00FF6E15 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8244F57A1E02C69F00FF6E15 /* GameScene.sks */; };
 		8244F57F1E02C69F00FF6E15 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244F57E1E02C69F00FF6E15 /* GameScene.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2D4EEB1C1E3296AE00DD3738 /* TitlePage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitlePage.sks; sourceTree = "<group>"; };
+		2D4EEB201E32A31200DD3738 /* TitlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitlePage.swift; sourceTree = "<group>"; };
 		8244F5751E02C69F00FF6E15 /* Seasons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seasons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8244F5781E02C69F00FF6E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8244F57A1E02C69F00FF6E15 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				8244F5781E02C69F00FF6E15 /* AppDelegate.swift */,
 				8244F5801E02C69F00FF6E15 /* GameViewController.swift */,
 				2D4EEB1C1E3296AE00DD3738 /* TitlePage.sks */,
+				2D4EEB201E32A31200DD3738 /* TitlePage.swift */,
 				8244F57A1E02C69F00FF6E15 /* GameScene.sks */,
 				8244F57E1E02C69F00FF6E15 /* GameScene.swift */,
 				826791A71E05A61900161869 /* Scenes */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826791A21E05A61200161869 /* Scene02.swift in Sources */,
+				2D4EEB211E32A31200DD3738 /* TitlePage.swift in Sources */,
 				8244F57F1E02C69F00FF6E15 /* GameScene.swift in Sources */,
 				826791A61E05A61200161869 /* Scene04.swift in Sources */,
 				8244F5811E02C69F00FF6E15 /* GameViewController.swift in Sources */,

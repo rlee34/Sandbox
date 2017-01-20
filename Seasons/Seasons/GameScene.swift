@@ -23,6 +23,13 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    var footer: SKNode!
+    var btnNext: SKSpriteNode!
+    var btnPrevious: SKSpriteNode!
+    var btnSound: SKSpriteNode!
+    var btnHome: SKSpriteNode!
+    
 
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
@@ -49,4 +56,14 @@ class GameScene: SKScene {
   func getPreviousScene() -> SKScene? {
     return nil
   }
+    
+    override func sceneDidLoad() {
+        super.sceneDidLoad()
+        footer = childNode(withName: "footer")
+        
+        btnNext = childNode(withName: "//buttonNext") as! SKSpriteNode!
+        btnPrevious = childNode(withName: "//buttonPrevious") as! SKSpriteNode!
+        btnSound = childNode(withName: "//buttonSound") as! SKSpriteNode!
+        btnHome = childNode(withName: "//buttonHome") as! SKSpriteNode!
+    }
 }
