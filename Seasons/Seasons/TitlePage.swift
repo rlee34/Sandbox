@@ -10,4 +10,7 @@ import SpriteKit
 
 class TitlePage: GameScene {
 
+    override func getNextScene() -> SKScene? {
+        return SKScene(fileNamed: "Scene01") as! Scene01
+    }
 }
