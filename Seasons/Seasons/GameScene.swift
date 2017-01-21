@@ -29,6 +29,21 @@ class GameScene: SKScene {
     var btnPrevious: SKSpriteNode!
     var btnSound: SKSpriteNode!
     var btnHome: SKSpriteNode!
+    var backgroundMusic: SKAudioNode?
+    var textAudio: SKAudioNode?
+    var soundOff = false {
+        didSet {
+            let imageName = soundOff ? "button_sound_off" : "button_sound_on"
+            btnSound.texture = SKTexture(imageNamed: imageName)
+            
+            let action = soundOff ? SKAction.pause() : SKAction.play()
+            backgroundMusic?.run(action)
+            backgroundMusic?.autoplayLooped = !soundOff
+            
+            UserDefaults.standard.set(soundOff, forKey: "pref_sound")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -44,6 +59,8 @@ class GameScene: SKScene {
                 goToScene(scene: getPreviousScene()!)
             } else if btnHome.contains(location) {
                 goToScene(scene: SKScene(fileNamed: "TitlePage") as! TitlePage)
+            } else if btnSound.contains(location) {
+                soundOff = !soundOff
             }
         } else {
             touchDown(at: touchLocation)
@@ -84,12 +101,25 @@ class GameScene: SKScene {
         btnPrevious = childNode(withName: "//buttonPrevious") as! SKSpriteNode!
         btnSound = childNode(withName: "//buttonSound") as! SKSpriteNode!
         btnHome = childNode(withName: "//buttonHome") as! SKSpriteNode!
+        
+        backgroundMusic = childNode(withName: "backgroundMusic") as? SKAudioNode
+        textAudio = childNode(withName: "textAudio") as? SKAudioNode
+        
+        soundOff = UserDefaults.standard.bool(forKey: "pref_sound")
     }
     
     func goToScene(scene: SKScene) {
         let sceneTransition = SKTransition.fade(with: UIColor.darkGray, duration: 1)
         scene.scaleMode = .aspectFill
         self.view?.presentScene(scene, transition: sceneTransition)
+    }
+    
+    override func didMove(to view: SKView) {
+        if let textAudio = textAudio {
+            let wait = SKAction.wait(forDuration: 0.2)
+            let play = SKAction.play()
+            textAudio.run(SKAction.sequence([wait, play]))
+        }
     }
     
     

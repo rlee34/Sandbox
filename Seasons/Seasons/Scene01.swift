@@ -24,12 +24,25 @@ import SpriteKit
 
 class Scene01: GameScene {
     
+    var hat: SKSpriteNode!
+    
     override func getPreviousScene() -> SKScene? {
         return SKScene(fileNamed: "TitlePage") as! TitlePage
     }
   
     override func getNextScene() -> SKScene? {
         return SKScene(fileNamed: "Scene02") as! Scene02
+    }
+    
+    override func sceneDidLoad() {
+        super.sceneDidLoad()
+        hat = childNode(withName: "hat") as! SKSpriteNode
+        
+        var bounds = CGRect.zero
+        bounds.origin.x = -size.width/2
+        bounds.origin.y = -size.height/2 + 110
+        bounds.size = size
+        physicsBody = SKPhysicsBody(edgeLoopFrom: bounds)
     }
 
 }
