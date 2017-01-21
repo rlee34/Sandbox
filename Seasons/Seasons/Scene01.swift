@@ -25,6 +25,7 @@ import SpriteKit
 class Scene01: GameScene {
     
     var hat: SKSpriteNode!
+    var touchPoint: CGPoint?
     
     override func getPreviousScene() -> SKScene? {
         return SKScene(fileNamed: "TitlePage") as! TitlePage
@@ -43,6 +44,36 @@ class Scene01: GameScene {
         bounds.origin.y = -size.height/2 + 110
         bounds.size = size
         physicsBody = SKPhysicsBody(edgeLoopFrom: bounds)
+    }
+    
+    override func touchDown(at point: CGPoint) {
+        if hat.contains(point) {
+            touchPoint = point
+            
+            hat.physicsBody?.velocity = CGVector.zero
+            hat.physicsBody?.angularVelocity = 0
+            hat.physicsBody?.affectedByGravity = false
+        }
+    }
+    
+    override func touchUp(at Point: CGPoint) {
+        if let touchPoint = touchPoint {
+            hat.physicsBody?.affectedByGravity = true
+            if let hatPosition = childNode(withName: "hatPosition") {
+                if hatPosition.contains(touchPoint) {
+                    hat.position = hatPosition.position
+                    hat.physicsBody?.affectedByGravity = false
+                    hat.run(SKAction.playSoundFileNamed("tompsonman_pop.mp3", waitForCompletion: false))
+                }
+            }
+        }
+        touchPoint = nil
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if let touchPoint = touchPoint {
+            hat.position = touchPoint
+        }
     }
 
 }
