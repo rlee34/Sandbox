@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D4EEB1D1E3296AE00DD3738 /* TitlePage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEB1C1E3296AE00DD3738 /* TitlePage.sks */; };
 		2D4EEB211E32A31200DD3738 /* TitlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4EEB201E32A31200DD3738 /* TitlePage.swift */; };
+		2D4EEB231E3301E500DD3738 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2D4EEB221E3301E500DD3738 /* Snow.sks */; };
 		8244F5791E02C69F00FF6E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244F5781E02C69F00FF6E15 /* AppDelegate.swift */; };
 		8244F57B1E02C69F00FF6E15 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8244F57A1E02C69F00FF6E15 /* GameScene.sks */; };
 		8244F57F1E02C69F00FF6E15 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8244F57E1E02C69F00FF6E15 /* GameScene.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2D4EEB1C1E3296AE00DD3738 /* TitlePage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitlePage.sks; sourceTree = "<group>"; };
 		2D4EEB201E32A31200DD3738 /* TitlePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitlePage.swift; sourceTree = "<group>"; };
+		2D4EEB221E3301E500DD3738 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		8244F5751E02C69F00FF6E15 /* Seasons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seasons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8244F5781E02C69F00FF6E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8244F57A1E02C69F00FF6E15 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				826791AA1E06A06E00161869 /* Footer.sks */,
 				826791971E05A61200161869 /* Scene01.sks */,
 				826791981E05A61200161869 /* Scene01.swift */,
+				2D4EEB221E3301E500DD3738 /* Snow.sks */,
 				826791991E05A61200161869 /* Scene02.sks */,
 				8267919A1E05A61200161869 /* Scene02.swift */,
 				8267919B1E05A61200161869 /* Scene03.sks */,
@@ -249,6 +252,7 @@
 				825040B21E02FAC3007CBCBC /* pg04.mp3 in Resources */,
 				825040AB1E02FAC3007CBCBC /* cameronmusic_meow.mp3 in Resources */,
 				825040BA1E02FB34007CBCBC /* thompsonman_pop.mp3 in Resources */,
+				2D4EEB231E3301E500DD3738 /* Snow.sks in Resources */,
 				826791A51E05A61200161869 /* Scene04.sks in Resources */,
 				8244F5841E02C69F00FF6E15 /* Main.storyboard in Resources */,
 				826791AB1E06A06E00161869 /* Footer.sks in Resources */,
