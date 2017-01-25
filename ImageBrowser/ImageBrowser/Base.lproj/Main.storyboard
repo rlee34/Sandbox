@@ -66,9 +66,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iOb-bi-7rY" firstAttribute="leading" secondItem="TVf-fm-dyy" secondAttribute="leading" id="GPm-dF-TbZ"/>
-                            <constraint firstItem="iOb-bi-7rY" firstAttribute="bottom" secondItem="h4F-Hc-8Ln" secondAttribute="top" id="Pr4-1k-Tc7"/>
                             <constraint firstAttribute="trailing" secondItem="iOb-bi-7rY" secondAttribute="trailing" id="VGb-RR-gvq"/>
                             <constraint firstItem="iOb-bi-7rY" firstAttribute="top" secondItem="TVf-fm-dyy" secondAttribute="top" id="Zi7-SW-p3s"/>
+                            <constraint firstItem="iOb-bi-7rY" firstAttribute="bottom" secondItem="h4F-Hc-8Ln" secondAttribute="top" id="j6C-d0-vRI"/>
                         </constraints>
                     </view>
                     <connections>
