@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     var score = 0
     var level = 1
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +39,7 @@ class ViewController: UIViewController {
         }
         
         loadLevel()
+        
     }
     
     func loadLevel() {
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         letterBits = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: letterBits) as! [String]
-        
+
         if letterBits.count == letterButtons.count {
             for i in 0 ..< letterBits.count {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
