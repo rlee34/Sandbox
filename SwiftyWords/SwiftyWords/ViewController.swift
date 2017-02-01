@@ -38,9 +38,12 @@ class ViewController: UIViewController {
             letterButtons.append(btn)
             btn.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
         }
+        
+        loadLevel()
     }
     
     func loadLevel() {
+        
         var clueString = ""
         var solutionString = ""
         var letterBits = [String]()
@@ -67,7 +70,17 @@ class ViewController: UIViewController {
             }
         }
         
-        // configure buttons and labels
+        cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+        answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        letterBits = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: letterBits) as! [String]
+        
+        if letterBits.count == letterButtons.count {
+            for i in 0 ..< letterBits.count {
+                letterButtons[i].setTitle(letterBits[i], for: .normal)
+            }
+        }
+        
     }
     
     func letterTapped(btn: UIButton) {
