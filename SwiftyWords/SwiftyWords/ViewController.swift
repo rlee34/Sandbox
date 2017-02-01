@@ -20,6 +20,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearTapped(_ sender: Any) {
+        currentAnswer.text = ""
+        
+        for btn in activatedButtons {
+            btn.isHidden = false
+        }
+        
+        activatedButtons.removeAll()
     }
     
     var letterButtons = [UIButton]()
@@ -84,7 +91,11 @@ class ViewController: UIViewController {
     }
     
     func letterTapped(btn: UIButton) {
-        
+        if let currentAnswerText = currentAnswer.text, let buttonTitle = btn.titleLabel?.text {
+            currentAnswer.text = currentAnswerText + buttonTitle
+            activatedButtons.append(btn)
+            btn.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
