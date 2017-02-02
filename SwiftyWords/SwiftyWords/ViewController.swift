@@ -21,22 +21,29 @@ class ViewController: UIViewController {
         if let solutionPosition = solutions.index(of: currentAnswer.text!) {
             activatedButtons.removeAll()
             
-            var splitClues = answersLabel.text!.components(separatedBy: "/n")
+            var splitClues = answersLabel.text!.components(separatedBy: "\n")
             splitClues[solutionPosition] = currentAnswer.text!
-            answersLabel.text = splitClues.joined(separator: "'n")
+            answersLabel.text = splitClues.joined(separator: "\n")
             
             currentAnswer.text = ""
             score += 1
             
             if score % 7 == 0 {
-                let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
-                present(ac, animated: true)
+                if level < 3 {
+                    let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+                    present(ac, animated: true)
+                } else {
+                    let ac = UIAlertController(title: "Game Over", message: "You've completed all 3 levels, way to go!", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Play Again", style: .default, handler: playAgain))
+                    present(ac, animated: true)
+                }
             }
         }
     }
     
     @IBAction func clearTapped(_ sender: Any) {
+        
         currentAnswer.text = ""
         
         for btn in activatedButtons {
@@ -108,6 +115,7 @@ class ViewController: UIViewController {
     }
     
     func levelUp(action: UIAlertAction) {
+        
         level += 1
         solutions.removeAll(keepingCapacity: true)
         
@@ -118,7 +126,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func playAgain(action: UIAlertAction) {
+        
+        level = 1
+        solutions.removeAll(keepingCapacity: true)
+        
+        loadLevel()
+        
+        for btn in letterButtons {
+            btn.isHidden = false
+        }
+    }
+    
     func letterTapped(btn: UIButton) {
+        
         if let currentAnswerText = currentAnswer.text, let buttonTitle = btn.titleLabel?.text {
             currentAnswer.text = currentAnswerText + buttonTitle
             activatedButtons.append(btn)
