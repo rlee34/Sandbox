@@ -27,8 +27,9 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            correctGuesses += 1
             
-            if score % 7 == 0 {
+            if correctGuesses % 7 == 0 && correctGuesses != 0 {
                 if level < 3 {
                     let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                     ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
@@ -39,6 +40,9 @@ class ViewController: UIViewController {
                     present(ac, animated: true)
                 }
             }
+        } else {
+            clearTapped(self)
+            score -= 1
         }
     }
     
@@ -57,6 +61,7 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
+    var correctGuesses = 0
     var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -115,6 +120,8 @@ class ViewController: UIViewController {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
             }
         }
+        
+        correctGuesses = 0
         
     }
     
