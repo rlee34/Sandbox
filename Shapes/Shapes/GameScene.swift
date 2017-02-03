@@ -55,6 +55,19 @@ class GameScene: SKScene {
                 startAngle: CGFloat(0.0),
                 endAngle: CGFloat(3.0 * M_PI_2),
                 clockwise: false)
+    
+    let section = SKShapeNode(path: path.cgPath)
+    section.position = CGPoint(x: size.width/2, y: size.height/2)
+    section.fillColor = .yellow
+    section.strokeColor = .yellow
+    addChild(section)
+    
+    let section2 = SKShapeNode(path: path.cgPath)
+    section2.position = CGPoint(x: size.width/2, y: size.height/2)
+    section2.fillColor = .red
+    section2.strokeColor = .red
+    section2.zRotation = CGFloat(M_PI_2);
+    addChild(section2)
   }
   
 }
