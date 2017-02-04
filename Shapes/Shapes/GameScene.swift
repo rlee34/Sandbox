@@ -116,6 +116,13 @@ class GameScene: SKScene {
       section.strokeColor = colors[i]
       section.zRotation = rotationFactor * CGFloat(i);
       
+      let sectionBody = SKPhysicsBody(polygonFrom: path.cgPath)
+      sectionBody.categoryBitMask = PhysicsCategory.Obstacle
+      sectionBody.collisionBitMask = 0
+      sectionBody.contactTestBitMask = PhysicsCategory.Player
+      sectionBody.affectedByGravity = false
+      section.physicsBody = sectionBody
+      
       container.addChild(section)
     }
     
