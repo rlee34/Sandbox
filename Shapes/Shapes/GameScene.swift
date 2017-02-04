@@ -24,6 +24,8 @@ import SpriteKit
 
 class GameScene: SKScene {
   
+  let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
+  
   override func didMove(to view: SKView) {
     setupPlayerAndObstacles()
   }
@@ -70,4 +72,23 @@ class GameScene: SKScene {
     addChild(section2)
   }
   
+  func obstacleByDuplicatingPath(_ path: UIBezierPath, clockwise: Bool) -> SKNode {
+    let container = SKNode()
+    
+    var rotationFactor = CGFloat(M_PI_2)
+    if !clockwise {
+      rotationFactor *= -1
+    }
+    
+    for i in 0...3 {
+      let section = SKShapeNode(path: path.cgPath)
+      section.fillColor = colors[i]
+      section.strokeColor = colors[i]
+      section.zRotation = rotationFactor * CGFloat(i);
+      
+      container.addChild(section)
+    }
+    
+    return container
+  }
 }
