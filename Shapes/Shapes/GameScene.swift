@@ -24,14 +24,45 @@ import SpriteKit
 
 class GameScene: SKScene {
   
+  struct PhysicsCategory {
+    static let Player: UInt32 = 1
+    static let Obstacle: UInt32 = 2
+    static let Edge: UInt32 = 4
+  }
+  
   let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
+  let player = SKShapeNode(circleOfRadius: 40)
+  
   
   override func didMove(to view: SKView) {
     setupPlayerAndObstacles()
+    
+    let playerBody = SKPhysicsBody(circleOfRadius: 30)
+    playerBody.mass = 1.5
+    playerBody.categoryBitMask = PhysicsCategory.Player
+    playerBody.collisionBitMask = 4
+    player.physicsBody = playerBody
+    
+    let ledge = SKNode()
+    ledge.position = CGPoint(x: size.width/2, y: 160)
+    let ledgeBody = SKPhysicsBody(rectangleOf: CGSize(width: 200, height: 10))
+    ledgeBody.isDynamic = false
+    ledgeBody.categoryBitMask = PhysicsCategory.Edge
+    ledge.physicsBody = ledgeBody
+    addChild(ledge)
   }
   
   func setupPlayerAndObstacles() {
     addObstacle()
+    addPlayer()
+  }
+  
+  func addPlayer() {
+    player.fillColor = .blue
+    player.strokeColor = player.fillColor
+    player.position = CGPoint(x: size.width/2, y: 200)
+    
+    addChild(player)
   }
   
   func addObstacle() {
@@ -40,16 +71,15 @@ class GameScene: SKScene {
   
   func addCircleObstacle() {
     let path = UIBezierPath()
-
     path.move(to: CGPoint(x: 0, y: -200))
     path.addLine(to: CGPoint(x: 0, y: -160))
-    
+
     path.addArc(withCenter: CGPoint.zero,
                 radius: 160,
                 startAngle: CGFloat(3.0 * M_PI_2),
                 endAngle: CGFloat(0),
                 clockwise: true)
-    
+
     path.addLine(to: CGPoint(x: 200, y: 0))
     
     path.addArc(withCenter: CGPoint.zero,
@@ -58,18 +88,12 @@ class GameScene: SKScene {
                 endAngle: CGFloat(3.0 * M_PI_2),
                 clockwise: false)
     
-    let section = SKShapeNode(path: path.cgPath)
-    section.position = CGPoint(x: size.width/2, y: size.height/2)
-    section.fillColor = .yellow
-    section.strokeColor = .yellow
-    addChild(section)
+    let obstacle = obstacleByDuplicatingPath(path, clockwise: true)
+    obstacle.position = CGPoint(x: size.width/2, y: size.height/2)
+    addChild(obstacle)
     
-    let section2 = SKShapeNode(path: path.cgPath)
-    section2.position = CGPoint(x: size.width/2, y: size.height/2)
-    section2.fillColor = .red
-    section2.strokeColor = .red
-    section2.zRotation = CGFloat(M_PI_2);
-    addChild(section2)
+    let rotateAction = SKAction.rotate(byAngle: 2.0 * CGFloat(M_PI), duration: 8.0)
+    obstacle.run(SKAction.repeatForever(rotateAction))
   }
   
   func obstacleByDuplicatingPath(_ path: UIBezierPath, clockwise: Bool) -> SKNode {
