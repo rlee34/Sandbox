@@ -50,6 +50,12 @@ class GameScene: SKScene {
     ledgeBody.categoryBitMask = PhysicsCategory.Edge
     ledge.physicsBody = ledgeBody
     addChild(ledge)
+    
+    physicsWorld.gravity.dy = -22
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    player.physicsBody?.velocity.dy = 800.0
   }
   
   func setupPlayerAndObstacles() {
