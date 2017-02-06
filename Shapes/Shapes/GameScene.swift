@@ -54,14 +54,25 @@ class GameScene: SKScene {
     physicsWorld.gravity.dy = -22
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    player.physicsBody?.velocity.dy = 800.0
-  }
-  
   func setupPlayerAndObstacles() {
     addObstacle()
     addPlayer()
   }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    player.physicsBody?.velocity.dy = 800.0
+  }
+  
+  func dieAndRestart() {
+    print("boom")
+    player.physicsBody?.velocity.dy = 0
+    player.removeFromParent()
+    
+    // TODO: Remove obstacles
+    
+    setupPlayerAndObstacles()
+  }
+ 
   
   func addPlayer() {
     player.fillColor = .blue
@@ -128,4 +139,5 @@ class GameScene: SKScene {
     
     return container
   }
+
 }
