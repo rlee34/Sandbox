@@ -34,6 +34,7 @@ class GameScene: SKScene {
   let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
   let player = SKShapeNode(circleOfRadius: 40)
   let obstacleSpacing: CGFloat = 800
+  let cameraNode = SKCameraNode()
   
   
   override func didMove(to view: SKView) {
@@ -56,6 +57,10 @@ class GameScene: SKScene {
     physicsWorld.gravity.dy = -22
     
     physicsWorld.contactDelegate = self
+    
+    addChild(cameraNode)
+    camera = cameraNode
+    cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
   }
   
   func setupPlayerAndObstacles() {
@@ -67,6 +72,23 @@ class GameScene: SKScene {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     player.physicsBody?.velocity.dy = 800.0
+  }
+  
+  override func update(_ currentTime: TimeInterval) {
+    if player.position.y > obstacleSpacing * CGFloat(obstacles.count - 2) {
+      print("score")
+      // TODO: Update score
+      addObstacle()
+    }
+    
+    let playerPositionInCamera = cameraNode.convert(player.position, from: self)
+    if playerPositionInCamera.y > 0 && !cameraNode.hasActions() {
+      cameraNode.position.y = player.position.y
+    }
+    
+    if playerPositionInCamera.y < -size.height/2 {
+      dieAndRestart()
+    }
   }
   
   func dieAndRestart() {
@@ -81,6 +103,8 @@ class GameScene: SKScene {
     obstacles.removeAll()
     
     setupPlayerAndObstacles()
+    
+    cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
   }
  
   
