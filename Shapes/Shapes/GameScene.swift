@@ -31,10 +31,12 @@ class GameScene: SKScene {
   }
   
   var obstacles: [SKNode] = []
+  var score = 0
   let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
   let player = SKShapeNode(circleOfRadius: 40)
   let obstacleSpacing: CGFloat = 800
   let cameraNode = SKCameraNode()
+  let scoreLabel = SKLabelNode()
   
   
   override func didMove(to view: SKView) {
@@ -61,6 +63,12 @@ class GameScene: SKScene {
     addChild(cameraNode)
     camera = cameraNode
     cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
+    
+    scoreLabel.position = CGPoint(x: -350, y: -900)
+    scoreLabel.fontColor = .white
+    scoreLabel.fontSize = 150
+    scoreLabel.text = String(score)
+    cameraNode.addChild(scoreLabel)
   }
   
   func setupPlayerAndObstacles() {
@@ -77,7 +85,8 @@ class GameScene: SKScene {
   override func update(_ currentTime: TimeInterval) {
     if player.position.y > obstacleSpacing * CGFloat(obstacles.count - 2) {
       print("score")
-      // TODO: Update score
+      score += 1
+      scoreLabel.text = String(score)
       addObstacle()
     }
     
@@ -105,6 +114,9 @@ class GameScene: SKScene {
     setupPlayerAndObstacles()
     
     cameraNode.position = CGPoint(x: size.width/2, y: size.height/2)
+    
+    score = 0
+    scoreLabel.text = String(score)
   }
  
   
