@@ -52,6 +52,8 @@ class GameScene: SKScene {
     addChild(ledge)
     
     physicsWorld.gravity.dy = -22
+    
+    physicsWorld.contactDelegate = self
   }
   
   func setupPlayerAndObstacles() {
@@ -140,4 +142,12 @@ class GameScene: SKScene {
     return container
   }
 
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+  func didBegin(_ contact: SKPhysicsContact) {
+    if let nodeA = contact.bodyA.node as? SKShapeNode, let nodeB = contact.bodyB.node as? SKShapeNode {
+      dieAndRestart()
+    }
+  }
 }
