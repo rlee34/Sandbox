@@ -147,7 +147,9 @@ class GameScene: SKScene {
 extension GameScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
     if let nodeA = contact.bodyA.node as? SKShapeNode, let nodeB = contact.bodyB.node as? SKShapeNode {
-      dieAndRestart()
+      if nodeA.fillColor != nodeB.fillColor {
+        dieAndRestart()
+      }
     }
   }
 }
