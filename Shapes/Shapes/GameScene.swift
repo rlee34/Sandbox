@@ -30,8 +30,10 @@ class GameScene: SKScene {
     static let Edge: UInt32 = 4
   }
   
+  var obstacles: [SKNode] = []
   let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
   let player = SKShapeNode(circleOfRadius: 40)
+  let obstacleSpacing: CGFloat = 800
   
   
   override func didMove(to view: SKView) {
@@ -59,6 +61,8 @@ class GameScene: SKScene {
   func setupPlayerAndObstacles() {
     addObstacle()
     addPlayer()
+    addObstacle()
+    addObstacle()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,7 +74,11 @@ class GameScene: SKScene {
     player.physicsBody?.velocity.dy = 0
     player.removeFromParent()
     
-    // TODO: Remove obstacles
+    for node in obstacles {
+      node.removeFromParent()
+    }
+    
+    obstacles.removeAll()
     
     setupPlayerAndObstacles()
   }
@@ -108,7 +116,8 @@ class GameScene: SKScene {
                 clockwise: false)
     
     let obstacle = obstacleByDuplicatingPath(path, clockwise: true)
-    obstacle.position = CGPoint(x: size.width/2, y: size.height/2)
+    obstacles.append(obstacle)
+    obstacle.position = CGPoint(x: size.width/2, y: obstacleSpacing * CGFloat(obstacles.count))
     addChild(obstacle)
     
     let rotateAction = SKAction.rotate(byAngle: 2.0 * CGFloat(M_PI), duration: 8.0)
