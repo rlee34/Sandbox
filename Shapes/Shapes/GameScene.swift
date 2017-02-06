@@ -117,7 +117,15 @@ class GameScene: SKScene {
   }
   
   func addObstacle() {
-    addCircleObstacle()
+    let choice = Int(arc4random_uniform(2))
+    switch choice {
+    case 0:
+      addCircleObstacle()
+    case 1:
+      addSquareObstacle()
+    default:
+      print("something went wrong")
+    }
   }
   
   func addCircleObstacle() {
@@ -145,6 +153,18 @@ class GameScene: SKScene {
     addChild(obstacle)
     
     let rotateAction = SKAction.rotate(byAngle: 2.0 * CGFloat(M_PI), duration: 8.0)
+    obstacle.run(SKAction.repeatForever(rotateAction))
+  }
+  
+  func addSquareObstacle() {
+    let path = UIBezierPath(roundedRect: CGRect(x: -200, y: -200, width: 400, height: 40), cornerRadius: 20)
+    let obstacle = obstacleByDuplicatingPath(path, clockwise: false)
+    
+    obstacles.append(obstacle)
+    obstacle.position = CGPoint(x: size.width/2, y: obstacleSpacing * CGFloat(obstacles.count))
+    addChild(obstacle)
+    
+    let rotateAction = SKAction.rotate(byAngle: -2.0 * CGFloat(M_PI), duration: 7.0)
     obstacle.run(SKAction.repeatForever(rotateAction))
   }
   
