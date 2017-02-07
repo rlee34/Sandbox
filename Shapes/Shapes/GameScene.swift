@@ -21,6 +21,7 @@
  */
 
 import SpriteKit
+import GameplayKit
 
 class GameScene: SKScene {
   
@@ -83,7 +84,9 @@ class GameScene: SKScene {
   }
   
   override func update(_ currentTime: TimeInterval) {
-    if player.position.y > obstacleSpacing * CGFloat(obstacles.count - 2) {
+    if player.position.y > obstacleSpacing * CGFloat(obstacles.count - 2) + 155 {
+      player.fillColor = colors[GKRandomSource.sharedRandom().nextInt(upperBound: 3)]
+      player.strokeColor = player.fillColor
       print("score")
       score += 1
       scoreLabel.text = String(score)
@@ -179,7 +182,7 @@ class GameScene: SKScene {
     let rotateAction = SKAction.rotate(byAngle: -2.0 * CGFloat(M_PI), duration: 7.0)
     obstacle.run(SKAction.repeatForever(rotateAction))
   }
-  
+
   func obstacleByDuplicatingPath(_ path: UIBezierPath, clockwise: Bool) -> SKNode {
     let container = SKNode()
     
