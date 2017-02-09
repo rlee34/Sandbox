@@ -49,7 +49,7 @@ hackingwithswift.com project # 7 & 9
 
 application utilizes "We the People" API and SwiftyJSON to deliver petitions to the user for viewing.
 
-Focus: JSON, Data, UITabBarController
+Focus: JSON, Data, UITabBarController, GCD
 
 #ColorSwitchGame
 https://www.raywenderlich.com/149034/how-to-make-a-game-like-color-switch-with-spritekit-and-swift
