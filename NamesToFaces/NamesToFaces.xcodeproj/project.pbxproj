@@ -13,6 +13,7 @@
 		2D5EE3851E4CD0C100ED3B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D5EE3841E4CD0C100ED3B07 /* Assets.xcassets */; };
 		2D5EE3881E4CD0C100ED3B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5EE3861E4CD0C100ED3B07 /* LaunchScreen.storyboard */; };
 		2D5EE3901E4CE22800ED3B07 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EE38F1E4CE22800ED3B07 /* PersonCell.swift */; };
+		2D5EE3921E4D283000ED3B07 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EE3911E4D283000ED3B07 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2D5EE3871E4CD0C100ED3B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5EE3891E4CD0C100ED3B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D5EE38F1E4CE22800ED3B07 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		2D5EE3911E4D283000ED3B07 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				2D5EE37D1E4CD0C100ED3B07 /* AppDelegate.swift */,
 				2D5EE37F1E4CD0C100ED3B07 /* ViewController.swift */,
+				2D5EE3911E4D283000ED3B07 /* Person.swift */,
 				2D5EE3811E4CD0C100ED3B07 /* Main.storyboard */,
 				2D5EE38F1E4CE22800ED3B07 /* PersonCell.swift */,
 				2D5EE3841E4CD0C100ED3B07 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				2D5EE3901E4CE22800ED3B07 /* PersonCell.swift in Sources */,
 				2D5EE3801E4CD0C100ED3B07 /* ViewController.swift in Sources */,
+				2D5EE3921E4D283000ED3B07 /* Person.swift in Sources */,
 				2D5EE37E1E4CD0C100ED3B07 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
