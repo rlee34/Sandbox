@@ -44,4 +44,17 @@ class GameScene: SKScene {
         bouncer.physicsBody?.isDynamic = false
         addChild(bouncer)
     }
+    
+    func makeSlow(at position: CGPoint, isGood: Bool) {
+        var slotBase: SKSpriteNode
+        
+        if isGood {
+            slotBase = SKSpriteNode(imageNamed: "slowBaseGood")
+        } else {
+            slotBase = SKSpriteNode(imageNamed: "slowBaseBad")
+        }
+        
+        slotBase.position = position
+        addChild(slotBase)
+    }
 }
