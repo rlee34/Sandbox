@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -17,6 +17,8 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        
+        physicsWorld.contactDelegate = self
         
         makeSlot(at: CGPoint(x: 128, y: 0), isGood: true)
         makeSlot(at: CGPoint(x: 384, y: 0), isGood: false)
