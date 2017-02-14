@@ -37,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: self)
             let ball = SKSpriteNode(imageNamed: "ballRed")
             ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+            ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
             ball.physicsBody!.restitution = 0.4
             ball.position = location
             ball.name = "ball"
@@ -80,5 +81,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spinForever = SKAction.repeatForever(spin)
         slotGlow.run(spinForever)
         
+    }
+    
+    func collisionBetween(ball: SKNode, object: SKNode) {
+        if object.name == "good" {
+            destroy(ball: ball)
+        } else if object.name == "bad" {
+            destroy(ball: ball)
+        }
+    }
+    
+    func destroy(ball: SKNode) {
+        ball.removeFromParent()
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node?.name == "ball" {
+            collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
+        } else if contact.bodyB.node?.name == "ball" {
+            collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
+        }
     }
 }
