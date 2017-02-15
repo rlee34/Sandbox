@@ -59,3 +59,10 @@ remake of the popular game Color Switch
 Focus: SKShapeNodes, SKActions, bit masks, SKCameraCode, UIBezierPath
 Personal Contributions: Randomize color once obstacle is passed 
 
+#Pachinko
+https://www.hackingwithswift.com/read/11/
+
+Plinko type game, users have to try to land balls in certain areas while avoiding obstacles
+
+Focus: SpriteKit, physics, blend modes, radians, CGFloat, NSKeyedUnarchiver
+Personal Contributions: Fix Y position so balls can only be created at the top of the screen.
