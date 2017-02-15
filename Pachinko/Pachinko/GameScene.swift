@@ -13,7 +13,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
     var editLabel: SKLabelNode!
+    var livesLabel: SKLabelNode!
     let ballColor = ["ballRed", "ballBlue", "ballCyan", "ballGrey", "ballGreen", "ballPurple", "ballYellow"]
+    
+    var lives: Int = 0 {
+        didSet {
+            livesLabel.text = "Lives: \(lives)"
+        }
+    }
     
     var score: Int = 0 {
         didSet {
@@ -31,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // MARK: LEVEL SETUP
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
         background.position = CGPoint(x: 512, y: 384)
@@ -62,8 +70,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.text = "Edit"
         editLabel.position = CGPoint(x: 80, y: 700)
         addChild(editLabel)
+        
+        livesLabel = SKLabelNode(fontNamed: "Chalkduster")
+        livesLabel.text = "Lives: 0"
+        livesLabel.horizontalAlignmentMode = .right
+        livesLabel.position = CGPoint(x: 980, y: 650)
+        addChild(livesLabel)
+        
+        resetLevel()
     }
     
+    // MARK: TOUCH HANDLING
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
@@ -84,7 +101,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     addChild(box)
                 } else {
-                    if childNode(withName: "ball") == nil {
+                    if childNode(withName: "ball") == nil && lives != 0 {
+                        lives -= 1
                         let ball = SKSpriteNode(imageNamed: ballColor.randomItem())
                         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                         ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
@@ -98,6 +116,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+    // MARK: LEVEL CREATION HELPER METHODS
     func makeBouncer(at position: CGPoint) {
         let bouncer = SKSpriteNode(imageNamed: "bouncer")
         bouncer.position = position
@@ -136,6 +156,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func resetLevel() {
+        lives += 5
+        
+        
+    }
+    
+    // MARK: COLLISION AND DESTRUCTION
     func collisionBetween(ball: SKNode, object: SKNode) {
         if object.name == "good" {
             destroy(ball: ball)
