@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
     var editLabel: SKLabelNode!
+    let ballColor = ["ballRed", "ballBlue", "ballCyan", "ballGrey", "ballGreen", "ballPurple", "ballYellow"]
     
     var score: Int = 0 {
         didSet {
@@ -83,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     addChild(box)
                 } else {
                     if childNode(withName: "ball") == nil {
-                        let ball = SKSpriteNode(imageNamed: "ballRed")
+                        let ball = SKSpriteNode(imageNamed: ballColor.randomItem())
                         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                         ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
                         ball.physicsBody!.restitution = 0.4
@@ -160,4 +161,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
         }
     }
+}
+
+extension Array {
+    func randomItem() -> Element {
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index]
+    }
+   
 }
