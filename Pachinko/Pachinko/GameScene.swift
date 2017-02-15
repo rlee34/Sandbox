@@ -65,13 +65,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
-            let ball = SKSpriteNode(imageNamed: "ballRed")
-            ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-            ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-            ball.physicsBody!.restitution = 0.4
-            ball.position = location
-            ball.name = "ball"
-            addChild(ball)
+            let objects = nodes(at: location)
+            
+            if objects.contains(editLabel) {
+                editingMode = !editingMode
+            } else {
+                let ball = SKSpriteNode(imageNamed: "ballRed")
+                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
+                ball.physicsBody!.restitution = 0.4
+                ball.position = location
+                ball.name = "ball"
+                addChild(ball)
+            }
         }
     }
     
