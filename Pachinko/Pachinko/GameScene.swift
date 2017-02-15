@@ -156,10 +156,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func makeBox (at position: CGPoint) {
+        let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
+        let box = SKSpriteNode(color: RandomColor(), size: size)
+        box.zRotation = RandomCGFloat(min: 0, max: 3)
+        box.position = position
+        
+        box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
+        box.physicsBody!.isDynamic = false
+        box.name = "box"
+        
+        addChild(box)
+    }
+    
     func resetLevel() {
         lives += 5
         
-        
+        for _ in 0...16{
+            makeBox(at: CGPoint(x: RandomInt(min: 30, max: 1020), y: RandomInt(min: 200, max: 540)))
+        }
     }
     
     // MARK: COLLISION AND DESTRUCTION
