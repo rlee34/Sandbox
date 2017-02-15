@@ -69,3 +69,7 @@ Personal Contributions:
 - Fix Y position so balls can only be created at the top of the screen.
 - Randomize ball color
 - Only allow 1 ball to be in play at a time
+- Changed scoring to add score when boxes are destoryed
+- Allow user to gain extra balls if the user's ball drops in a "good slot"
+- Removed manual placing of obstacles in favor of auto generating obstacles when the level starts
+- Impletemented functionality to offer player a restart option if the player runs out of lives or destroys all of the obstacles

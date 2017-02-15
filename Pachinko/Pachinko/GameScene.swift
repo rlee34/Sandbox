@@ -12,8 +12,8 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
-    var editLabel: SKLabelNode!
     var livesLabel: SKLabelNode!
+    var restartLabel: SKLabelNode!
     let ballColor = ["ballRed", "ballBlue", "ballCyan", "ballGrey", "ballGreen", "ballPurple", "ballYellow"]
     
     var lives: Int = 0 {
@@ -25,16 +25,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
-        }
-    }
-    
-    var editingMode: Bool = false {
-        didSet {
-            if editingMode {
-                editLabel.text = "Done"
-            } else {
-                editLabel.text = "Edit"
-            }
         }
     }
     
@@ -66,16 +56,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: 980, y: 700)
         addChild(scoreLabel)
         
-        editLabel = SKLabelNode(fontNamed: "Chalkduster")
-        editLabel.text = "Edit"
-        editLabel.position = CGPoint(x: 80, y: 700)
-        addChild(editLabel)
-        
         livesLabel = SKLabelNode(fontNamed: "Chalkduster")
         livesLabel.text = "Lives: 0"
-        livesLabel.horizontalAlignmentMode = .right
-        livesLabel.position = CGPoint(x: 980, y: 650)
+        livesLabel.horizontalAlignmentMode = .left
+        livesLabel.position = CGPoint(x: 80, y: 700)
         addChild(livesLabel)
+        
+        restartLabel = SKLabelNode(fontNamed: "Chalkduster")
+        restartLabel.text = "Restart?"
+        restartLabel.verticalAlignmentMode = .center
+        restartLabel.horizontalAlignmentMode = .center
+        restartLabel.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addChild(restartLabel)
+        restartLabel.isHidden = true
         
         resetLevel()
     }
@@ -86,31 +79,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: self)
             let objects = nodes(at: location)
             
-            if objects.contains(editLabel) {
-                editingMode = !editingMode
+            if objects.contains(restartLabel) {
+                resetLevel()
             } else {
-                if editingMode {
-                    let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
-                    let box = SKSpriteNode(color: RandomColor(), size: size)
-                    box.zRotation = RandomCGFloat(min: 0, max: 3)
-                    box.position = location
-                    
-                    box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
-                    box.physicsBody!.isDynamic = false
-                    box.name = "box"
-                    
-                    addChild(box)
-                } else {
-                    if childNode(withName: "ball") == nil && lives != 0 {
-                        lives -= 1
-                        let ball = SKSpriteNode(imageNamed: ballColor.randomItem())
-                        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-                        ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-                        ball.physicsBody!.restitution = 0.4
-                        ball.position = CGPoint(x: location.x, y: 700)
-                        ball.name = "ball"
-                        addChild(ball)
-                    }
+                if childNode(withName: "ball") == nil && lives != 0 {
+                    let ball = SKSpriteNode(imageNamed: ballColor.randomItem())
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                    ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
+                    ball.physicsBody!.restitution = 0.4
+                    ball.position = CGPoint(x: location.x, y: 700)
+                    ball.name = "ball"
+                    addChild(ball)
                 }
             }
         }
@@ -170,7 +149,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func resetLevel() {
-        lives += 5
+        restartLabel.isHidden = true
+        
+        for child in children {
+            if child == childNode(withName: "box") {
+                child.removeFromParent()
+            }
+        }
+        
+        score = 0
+        lives = 5
         
         for _ in 0...16{
             makeBox(at: CGPoint(x: RandomInt(min: 30, max: 1020), y: RandomInt(min: 200, max: 540)))
@@ -180,8 +168,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: COLLISION AND DESTRUCTION
     func collisionBetween(ball: SKNode, object: SKNode) {
         if object.name == "good" {
-            destroy(ball: ball)
             lives += 1
+            destroy(ball: ball)
         } else if object.name == "bad" {
             destroy(ball: ball)
         } else if object.name == "box" {
@@ -197,6 +185,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         ball.removeFromParent()
+        
+        lives -= 1
+        
+        if lives == 0 || childNode(withName: "box") == nil {
+            restartLabel.isHidden = false
+        }
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
