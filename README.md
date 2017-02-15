@@ -65,4 +65,7 @@ https://www.hackingwithswift.com/read/11/
 Plinko type game, users have to try to land balls in certain areas while avoiding obstacles
 
 Focus: SpriteKit, physics, blend modes, radians, CGFloat, NSKeyedUnarchiver
-Personal Contributions: Fix Y position so balls can only be created at the top of the screen.
+Personal Contributions: 
+- Fix Y position so balls can only be created at the top of the screen.
+- Randomize ball color
+- Only allow 1 ball to be in play at a time
