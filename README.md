@@ -44,6 +44,13 @@ playing with labels to learn autolayout
 
 Focus: NSLayoutConstraint, Visual Format Language, layout anchors
 
+#GooglyPuff
+https://www.raywenderlich.com/148513/grand-central-dispatch-tutorial-swift-3-part-1
+
+Grand Central Dispatch Tutorial
+
+Focus: GCD
+
 #WhitehousePetitions
 hackingwithswift.com project # 7 & 9
 
