@@ -41,6 +41,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         collectionView?.reloadData()
         
         dismiss(animated: true)
+        save()
     }
     
     func getDocumentsDirectory() -> URL {
@@ -49,7 +50,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return documentsDirectory
     }
     
-
+    func save() {
+        let savedData = NSKeyedArchiver.archivedData(withRootObject: people)
+        let defaults = UserDefaults.standard
+        defaults.set(savedData, forKey: "people")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,6 +95,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             person.name = newName.text!
             
             self.collectionView?.reloadData()
+            self.save()
         })
         
         present(ac, animated: true)
