@@ -58,6 +58,13 @@ application utilizes "We the People" API and SwiftyJSON to deliver petitions to 
 
 Focus: JSON, Data, UITabBarController, GCD
 
+#NamesToFaces
+https://www.hackingwithswift.com/read/10/overview
+
+Save photos of people you meet and add their names to the profile pic to help remember them.
+
+Focus: UICollectionView, UIImagePickerController, UUID, classes, UserDefaults, NSCoding, NSKeyedArchiver
+
 #ColorSwitchGame
 https://www.raywenderlich.com/149034/how-to-make-a-game-like-color-switch-with-spritekit-and-swift
 
@@ -69,14 +76,16 @@ Personal Contributions: Randomize color once obstacle is passed
 #Pachinko
 https://www.hackingwithswift.com/read/11/
 
-Plinko type game, users have to try to land balls in certain areas while avoiding obstacles
+Try to destoy all the obstacles while avoiding bad slots at the bottom.
 
 Focus: SpriteKit, physics, blend modes, radians, CGFloat, NSKeyedUnarchiver
+
 Personal Contributions: 
+
 - Fix Y position so balls can only be created at the top of the screen.
 - Randomize ball color
 - Only allow 1 ball to be in play at a time
-- Changed scoring to add score when boxes are destoryed
+- Changed scoring to add score when boxes are destroyed
 - Allow user to gain extra balls if the user's ball drops in a "good slot"
 - Removed manual placing of obstacles in favor of auto generating obstacles when the level starts
 - Impletemented functionality to offer player a restart option if the player runs out of lives or destroys all of the obstacles
