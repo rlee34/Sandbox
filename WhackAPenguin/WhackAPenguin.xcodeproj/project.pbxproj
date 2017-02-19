@@ -29,6 +29,7 @@
 		2D5EE44F1E591F6000ED3B07 /* whackMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5EE4411E591F6000ED3B07 /* whackMask.png */; };
 		2D5EE4501E591F6000ED3B07 /* whackMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5EE4421E591F6000ED3B07 /* whackMask@2x.png */; };
 		2D5EE4521E591F6700ED3B07 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EE4511E591F6700ED3B07 /* Helper.swift */; };
+		2D5EE4541E59212400ED3B07 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EE4531E59212400ED3B07 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		2D5EE4411E591F6000ED3B07 /* whackMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whackMask.png; sourceTree = "<group>"; };
 		2D5EE4421E591F6000ED3B07 /* whackMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackMask@2x.png"; sourceTree = "<group>"; };
 		2D5EE4511E591F6700ED3B07 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		2D5EE4531E59212400ED3B07 /* WhackSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				2D5EE41C1E591E0100ED3B07 /* AppDelegate.swift */,
 				2D5EE41E1E591E0100ED3B07 /* GameScene.sks */,
 				2D5EE4221E591E0100ED3B07 /* GameScene.swift */,
+				2D5EE4531E59212400ED3B07 /* WhackSlot.swift */,
 				2D5EE4241E591E0100ED3B07 /* GameViewController.swift */,
 				2D5EE4261E591E0100ED3B07 /* Main.storyboard */,
 				2D5EE4511E591F6700ED3B07 /* Helper.swift */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5EE4231E591E0100ED3B07 /* GameScene.swift in Sources */,
+				2D5EE4541E59212400ED3B07 /* WhackSlot.swift in Sources */,
 				2D5EE4251E591E0100ED3B07 /* GameViewController.swift in Sources */,
 				2D5EE41D1E591E0100ED3B07 /* AppDelegate.swift in Sources */,
 				2D5EE4521E591F6700ED3B07 /* Helper.swift in Sources */,
