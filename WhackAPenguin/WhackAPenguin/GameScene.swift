@@ -45,6 +45,18 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let tappedNodes = nodes(at: location)
+            
+            for node in tappedNodes {
+                if node.name == "charFriend" {
+                    // score --
+                } else if node.name == "charEnemy" {
+                    // score ++
+                }
+            }
+        }
     }
     
     func createSlot(at position: CGPoint) {
