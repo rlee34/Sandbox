@@ -89,3 +89,14 @@ Personal Contributions:
 - Allow user to gain extra balls if the user's ball drops in a "good slot"
 - Removed manual placing of obstacles in favor of auto generating obstacles when the level starts
 - Impletemented functionality to offer player a restart option if the player runs out of lives or destroys all of the obstacles
+
+#Whack-A-Penguin
+https://www.hackingwithswift.com/read/14/overview
+
+Whack penguins that pop up from the ground, but don't hit the good ones!
+
+Focus: SKCropNode, SKTexture, asyncAfter()
+
+Personal Contributions:
+
+- Randomized hide time to make the penguins more unpredictable

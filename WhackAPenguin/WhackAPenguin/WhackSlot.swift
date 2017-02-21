@@ -52,7 +52,7 @@ class WhackSlot: SKNode {
             charNode.name = "charEnemy"
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * RandomDouble(min: 2.3, max: 3.8))) { [unowned self] in
             self.hide()
         }
     }
