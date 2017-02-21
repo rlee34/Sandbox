@@ -51,9 +51,26 @@ class GameScene: SKScene {
             
             for node in tappedNodes {
                 if node.name == "charFriend" {
-                    // score --
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.isVisible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    whackSlot.hit()
+                    score -= 5
+                    
+                    run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
                 } else if node.name == "charEnemy" {
-                    // score ++
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.isVisible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    whackSlot.charNode.xScale = 0.85
+                    whackSlot.charNode.yScale = 0.85
+                    
+                    whackSlot.hit()
+                    score += 1
+                    
+                    run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
                 }
             }
         }
