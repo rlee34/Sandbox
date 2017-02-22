@@ -13,6 +13,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tap: UIButton!
     @IBAction func tapped(_ sender: Any) {
+        tap.isHidden = true
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [],
+           animations: { [unowned self] in
+            switch self.currentAnimation {
+            case 0:
+                self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+                
+            default:
+                break
+            }
+        }) { [unowned self] (finished: Bool) in
+            self.tap.isHidden = false
+        }
+        
         currentAnimation += 1
         
         if currentAnimation > 7 {

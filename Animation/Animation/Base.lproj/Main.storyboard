@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF3-Sg-BvL">
-                                <rect key="frame" x="164" y="591" width="46" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF3-Sg-BvL">
+                                <rect key="frame" x="660" y="920" width="46" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5fq-xi-Hlu"/>
+                                    <constraint firstAttribute="width" constant="46" id="C8e-4E-zSt"/>
+                                </constraints>
                                 <state key="normal" title="Tap"/>
                                 <connections>
                                     <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOL-jr-0vq"/>
@@ -31,10 +35,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AF3-Sg-BvL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="07Z-m3-Caa"/>
-                            <constraint firstItem="AF3-Sg-BvL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="2Kt-ad-ffx"/>
-                            <constraint firstItem="AF3-Sg-BvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FF8-X0-JRa"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AF3-Sg-BvL" secondAttribute="bottom" constant="133" id="mYn-gC-4nj"/>
+                            <constraint firstItem="AF3-Sg-BvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ned-UU-Fu1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AF3-Sg-BvL" secondAttribute="bottom" constant="60" id="zKB-QY-v14"/>
                         </constraints>
                     </view>
                     <connections>
