@@ -25,7 +25,7 @@
                                 <rect key="frame" x="164" y="591" width="46" height="44"/>
                                 <state key="normal" title="Tap"/>
                                 <connections>
-                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5en-Ov-XD3"/>
+                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOL-jr-0vq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,7 +38,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Tap" destination="FF8-X0-JRa" id="sRp-5K-Hga"/>
+                        <outlet property="Tap" destination="AF3-Sg-BvL" id="iF4-XW-oU9"/>
+                        <outlet property="tap" destination="AF3-Sg-BvL" id="Mh1-mh-eIn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
