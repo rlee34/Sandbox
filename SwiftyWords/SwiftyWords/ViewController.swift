@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         currentAnswer.text = ""
         
         for btn in activatedButtons {
-            btn.isHidden = false
+            btn.alpha = 1
         }
         
         activatedButtons.removeAll()
@@ -133,7 +133,7 @@ class ViewController: UIViewController {
         loadLevel()
         
         for btn in letterButtons {
-            btn.isHidden = false
+            btn.alpha = 1
         }
     }
     
@@ -145,7 +145,7 @@ class ViewController: UIViewController {
         loadLevel()
         
         for btn in letterButtons {
-            btn.isHidden = false
+            btn.alpha = 1
         }
     }
     
@@ -154,7 +154,10 @@ class ViewController: UIViewController {
         if let currentAnswerText = currentAnswer.text, let buttonTitle = btn.titleLabel?.text {
             currentAnswer.text = currentAnswerText + buttonTitle
             activatedButtons.append(btn)
-            btn.isHidden = true
+            
+            UIView.animate(withDuration: 0.8) {
+                btn.alpha = 0
+            }
         }
     }
 

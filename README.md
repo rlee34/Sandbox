@@ -37,6 +37,12 @@ Game. Make as many anagrams with a given word.
 
 Focus: Closures, NSRange, method return values
 
+Personal Contributions:
+
+- added extra levels and option to restart once last level is completed
+- changed functionality of hiding buttons so that they fade over a duration
+- obtaining higher score was possible by entering answers via keyboard, fixed this by disabling user interation with answer's label
+
 #AutoLayout
 hackingwithswift.com Project # 6
 
@@ -100,3 +106,11 @@ Focus: SKCropNode, SKTexture, asyncAfter()
 Personal Contributions:
 
 - Randomized hide time to make the penguins more unpredictable
+
+
+#Animations
+https://www.hackingwithswift.com/read/15/overview
+
+Playing around with Core Animation
+
+Focus: Core Animation, CGAffineTransform
