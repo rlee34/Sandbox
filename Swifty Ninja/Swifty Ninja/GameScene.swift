@@ -42,7 +42,22 @@ class GameScene: SKScene {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
+        activeSlicePoints.removeAll(keepingCapacity: true)
+        
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            activeSlicePoints.append(location)
+            
+            redrawActiveSlice()
+            
+            activeSliceBG.removeAllActions()
+            activeSliceFG.removeAllActions()
+            
+            activeSliceBG.alpha = 1
+            activeSliceFG.alpha = 1
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,7 +66,7 @@ class GameScene: SKScene {
         let location = touch.location(in: self)
         
         activeSlicePoints.append(location)
-        
+        redrawActiveSlice()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
