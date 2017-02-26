@@ -54,6 +54,17 @@ class GameScene: SKScene {
         
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        activeSliceBG.run(SKAction.fadeOut(withDuration: 0.25))
+        activeSliceFG.run(SKAction.fadeOut(withDuration: 0.25))
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
+        if let touches = touches {
+            touchesEnded(touches, with: event)
+        }
+    }
+    
     func createScore() {
         gameScore = SKLabelNode(fontNamed: "chalkduster")
         gameScore.text = "Score: 0"
