@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swifty Ninja/GameScene.swift"
-            timestampString = "509564825.931841"
+            timestampString = "509770515.194228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>
