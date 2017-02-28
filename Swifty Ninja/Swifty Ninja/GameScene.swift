@@ -241,7 +241,7 @@ class GameScene: SKScene {
     
     func createSlices() {
         activeSliceBG = SKShapeNode()
-        activeSliceBG.zPosition = 2
+        activeSliceBG.zPosition = 1
         
         activeSliceFG = SKShapeNode()
         activeSliceFG.zPosition = 2
