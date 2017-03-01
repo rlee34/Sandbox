@@ -55,7 +55,12 @@ class ViewController: UIViewController {
     arViewController.setAnnotations(places)
     self.present(arViewController, animated: true, completion: nil)
   }
-  
+ 
+  func showInfoView(forPlace place: Place) {
+    let alert = UIAlertController(title: place.placeName , message: place.infoText, preferredStyle: UIAlertControllerStyle.alert)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    arViewController.present(alert, animated: true, completion: nil)
+  }
 }
 
 extension ViewController: CLLocationManagerDelegate {
@@ -97,6 +102,35 @@ extension ViewController: CLLocationManagerDelegate {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+extension ViewController: ARDataSource {
+  func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
+    let annotationView = AnnotationView()
+    annotationView.annotation = viewForAnnotation
+    annotationView.delegate = self
+    annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+    
+    return annotationView
+  }
+}
+
+extension ViewController: AnnotationViewDelegate {
+  func didTouch(annotationView: AnnotationView) {
+  
+    if let annotation = annotationView.annotation as? Place {
+      let placesLoader = PlacesLoader()
+      placesLoader.loadDetailInformation(forPlace: annotation) { resultDict, error in
+        
+        if let infoDict = resultDict?.object(forKey: "result") as? NSDictionary {
+          annotation.phoneNumber = infoDict.object(forKey: "formatted_phone_number") as? String
+          annotation.website = infoDict.object(forKey: "website") as? String
+          
+          self.showInfoView(forPlace: annotation)
         }
       }
     }
