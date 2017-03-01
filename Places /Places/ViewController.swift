@@ -31,6 +31,7 @@ class ViewController: UIViewController {
   fileprivate let locationManager = CLLocationManager()
   fileprivate var startedLoadingPOIs = false
   fileprivate var places = [Place]()
+  fileprivate var arViewController: ARViewController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +48,12 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showARController(_ sender: Any) {
+    arViewController = ARViewController()
+    arViewController.dataSource = self
+    arViewController.maxVisibleAnnotations = 30
+    arViewController.headingSmoothingFactor = 0.05
+    arViewController.setAnnotations(places)
+    self.present(arViewController, animated: true, completion: nil)
   }
   
 }
@@ -69,7 +76,25 @@ extension ViewController: CLLocationManagerDelegate {
           let loader = PlacesLoader()
           loader.loadPOIS(location: location, radius: 1000) { placesDict, error in
             if let dict = placesDict {
-              print(dict)
+              guard let placesArray = dict.object(forKey: "results") as? [NSDictionary] else { return }
+              
+              for placeDict in placesArray {
+                let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
+                let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
+                let reference = placeDict.object(forKey: "reference") as! String
+                let name = placeDict.object(forKey: "name") as! String
+                let address = placeDict.object(forKey: "vicinity") as! String
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                
+                let place = Place(location: location, reference: reference, name: name, address: address)
+                self.places.append(place)
+                
+                let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
+                
+                DispatchQueue.main.async {
+                  self.mapView.addAnnotation(annotation)
+                }
+              }
             }
           }
         }
