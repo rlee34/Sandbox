@@ -22,11 +22,7 @@ class ViewController: UIViewController {
         let rome = Capital(title: "Rome", coordinate: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5), info: "Has a whole country inside it.")
         let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.")
         
-        mapView.addAnnotation(london)
-        mapView.addAnnotation(oslo)
-        mapView.addAnnotation(paris)
-        mapView.addAnnotation(rome)
-        mapView.addAnnotation(washington)
+        mapView.addAnnotations([london, oslo, paris, rome, washington])
     }
 
     override func didReceiveMemoryWarning() {
