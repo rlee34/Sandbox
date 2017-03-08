@@ -6,9 +6,12 @@
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
