@@ -34,6 +34,15 @@ class GameScene: SKScene {
         gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        for (index, firework) in fireworks.enumerated().reversed() {
+            if firework.position.y > 900 {
+                fireworks.remove(at: index)
+                firework.removeFromParent()
+            }
+        }
+    }
+    
     func createFirework(xMovement: CGFloat, x: Int, y: Int) {
         let node = SKNode()
         node.position = CGPoint(x: x, y: y)
