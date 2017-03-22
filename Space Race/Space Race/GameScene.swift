@@ -42,6 +42,10 @@ class GameScene: SKScene {
         addChild(scoreLabel)
         
         score = 0
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
+        
     }
    
 }
