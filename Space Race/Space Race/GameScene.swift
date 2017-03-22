@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield: SKEmitterNode!
     var player: SKSpriteNode!
@@ -20,6 +20,10 @@ class GameScene: SKScene {
             scoreLabel.text = "Score: \(score)"
         }
     }
+    
+    var possibleEnemies = ["ball", "hammer", "tv"]
+    var gameTimer: Timer!
+    var isGameOver = false
     
     override func didMove(to view: SKView) {
         backgroundColor = UIColor.black
@@ -46,6 +50,7 @@ class GameScene: SKScene {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
    
 }
