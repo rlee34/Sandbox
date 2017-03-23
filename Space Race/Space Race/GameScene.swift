@@ -53,6 +53,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        for node in children {
+            if node.position.x < -300 {
+                node.removeFromParent()
+            }
+        }
+    }
+    
     func createEnemy() {
         possibleEnemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
         let randomDistribution = GKRandomDistribution(lowestValue: 50, highestValue: 736)
