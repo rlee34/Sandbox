@@ -59,6 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 node.removeFromParent()
             }
         }
+        
+        if !isGameOver {
+            score += 1
+        }
     }
     
     func createEnemy() {
