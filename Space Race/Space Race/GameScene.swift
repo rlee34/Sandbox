@@ -52,5 +52,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
+    
+    func createEnemy() {
+        possibleEnemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
+        let randomDistribution = GKRandomDistribution(lowestValue: 50, highestValue: 736)
+        
+        let sprite = SKSpriteNode(imageNamed: possibleEnemies[0])
+        sprite.position = CGPoint(x: 1200, y: randomDistribution.nextInt())
+        addChild(sprite)
+    
+        sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+        sprite.physicsBody?.categoryBitMask = 1
+        sprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+        sprite.physicsBody?.angularVelocity = 5
+        sprite.physicsBody?.linearDamping = 0
+        sprite.physicsBody?.angularDamping = 0
+        
+        
+    }
    
 }
