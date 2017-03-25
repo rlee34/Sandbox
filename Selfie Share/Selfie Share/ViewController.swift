@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    var images = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "Selfie Share"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,8 @@ class ViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
 }
 

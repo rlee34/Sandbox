@@ -31,12 +31,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-ZH-uqu">
+                                        <imageView userInteractionEnabled="NO" tag="1000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xzc-ZH-uqu">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="xzc-ZH-uqu" firstAttribute="leading" secondItem="5zt-M6-SYl" secondAttribute="leading" id="5qx-8d-usk"/>
+                                    <constraint firstAttribute="trailing" secondItem="xzc-ZH-uqu" secondAttribute="trailing" id="gWZ-u1-SrA"/>
+                                    <constraint firstAttribute="bottom" secondItem="xzc-ZH-uqu" secondAttribute="bottom" id="hKP-2K-HBP"/>
+                                    <constraint firstItem="xzc-ZH-uqu" firstAttribute="top" secondItem="5zt-M6-SYl" secondAttribute="top" id="hqe-i5-tON"/>
+                                </constraints>
                             </collectionViewCell>
                         </cells>
                         <connections>
