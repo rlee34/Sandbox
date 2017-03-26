@@ -6,11 +6,15 @@
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
+import MultipeerConnectivity
 import UIKit
 
 class ViewController: UICollectionViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var images = [UIImage]()
+    var peerID: MCPeerID!
+    var mcSession: MCSession!
+    var mcAdvertiserAssistant: MCAdvertiserAssistant!
 
     override func viewDidLoad() {
         super.viewDidLoad()
