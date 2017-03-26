@@ -17,6 +17,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         
         title = "Selfie Share"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
     }
 
     func importPicture() {
@@ -33,6 +34,14 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         
         images.insert(image, at: 0)
         collectionView?.reloadData()
+    }
+    
+    func showConnectionPrompt() {
+        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Host a session", style: .default, handler: startHosting))
+        ac.addAction(UIAlertAction(title: "Join a session", style: .default, handler: joinSession))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
