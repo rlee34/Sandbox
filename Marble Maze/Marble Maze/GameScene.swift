@@ -12,7 +12,7 @@ import GameplayKit
 enum CollisionTypes: UInt32 {
     case player = 1
     case wall = 2
-    case start = 4
+    case star = 4
     case vortex = 8
     case finish = 16
 }
@@ -53,9 +53,27 @@ class GameScene: SKScene {
                             node.physicsBody!.collisionBitMask = 0
                             addChild(node)
                         } else if letter == "s" {
-                            // load star
+                            let node = SKSpriteNode(imageNamed: "star")
+                            node.name = "star"
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody!.isDynamic = false
+                            
+                            node.physicsBody!.categoryBitMask = CollisionTypes.star.rawValue
+                            node.physicsBody!.contactTestBitMask = CollisionTypes.player.rawValue
+                            node.physicsBody!.collisionBitMask = 0
+                            node.position = position
+                            addChild(node)
                         } else if letter == "f" {
-                            // load finish
+                            let node = SKSpriteNode(imageNamed: "finish")
+                            node.name = "finish"
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody!.isDynamic = false
+                            
+                            node.physicsBody!.categoryBitMask = CollisionTypes.finish.rawValue
+                            node.physicsBody!.contactTestBitMask = CollisionTypes.player.rawValue
+                            node.physicsBody!.collisionBitMask = 0
+                            node.position = position
+                            addChild(node)
                         }
                     }
                 }
