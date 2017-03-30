@@ -40,11 +40,16 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+    #if (arch(i386) || arch(x86_64))
         if let currentTouch = lastTouchPosition {
             let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
             physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
         }
-        
+    #else
+        if let accelerometerData = motionManager.accelerometerData {
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
+        }
+    #endif
     }
     
     func createPlayer() {
