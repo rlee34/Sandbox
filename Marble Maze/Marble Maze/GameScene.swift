@@ -6,6 +6,7 @@
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 import GameplayKit
 
@@ -21,6 +22,7 @@ class GameScene: SKScene {
     
     var player: SKSpriteNode!
     var lastTouchPosition: CGPoint?
+    var motionManager: CMMotionManager!
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -30,6 +32,8 @@ class GameScene: SKScene {
         addChild(background)
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
         
         loadLevel()
         createPlayer()
