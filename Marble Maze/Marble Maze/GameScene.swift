@@ -18,11 +18,18 @@ enum CollisionTypes: UInt32 {
     case finish = 16
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: SKSpriteNode!
+    var isGameOver = false
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager!
+    var scoreLabel: SKLabelNode!
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -37,9 +44,18 @@ class GameScene: SKScene {
         
         loadLevel()
         createPlayer()
+        
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        addChild(scoreLabel)
+        
+        physicsWorld.contactDelegate = self
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard isGameOver == false else { return }
     #if (arch(i386) || arch(x86_64))
         if let currentTouch = lastTouchPosition {
             let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
@@ -122,6 +138,14 @@ class GameScene: SKScene {
             }
         }
         
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node == player {
+            playerCollided(with: contact.bodyB.node!)
+        } else if contact.bodyB.node == player {
+            playerCollided(with: contact.bodyA.node!)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
