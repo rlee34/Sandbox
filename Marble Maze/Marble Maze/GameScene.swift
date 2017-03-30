@@ -137,7 +137,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -145,6 +144,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerCollided(with: contact.bodyB.node!)
         } else if contact.bodyB.node == player {
             playerCollided(with: contact.bodyA.node!)
+        }
+    }
+    
+    func playerCollided(with node: SKNode) {
+        if node.name == "vortex" {
+            player.physicsBody!.isDynamic = false
+            isGameOver = true
+            score -= 1
+            
+            let move = SKAction.move(to: node.position, duration: 0.25)
+            let scale = SKAction.scale(to: 0.0001, duration: 0.25)
+            let remove = SKAction.removeFromParent()
+            let sequence = SKAction.sequence([move, scale, remove])
+            
+            player.run(sequence) { [unowned self] in
+                self.createPlayer()
+                self.isGameOver = false
+                
+            }
+        } else if node.name == "star" {
+            node.removeFromParent()
+            score += 1
+        } else if node.name == "finish" {
+            // next level
         }
     }
     
