@@ -84,14 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func loadLevel() {
         if let levelPath = Bundle.main.path(forResource: "level1", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath) {
-                let lines = levelString.components(separatedBy: "\n")
-                
-                for (row, line) in lines.reversed().enumerated() {
-                    for (column, letter) in line.characters.enumerated() {
-                        let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
-                        createGameObject(fromLetter: letter, withPosition: position)
-                    }
-                }
+                createLevelFromString(levelString: levelString)
             }
         }
     }
@@ -126,6 +119,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score += 1
         } else if node.name == "finish" {
             // next level
+        }
+    }
+    
+    func createLevelFromString(levelString: String) {
+        let lines = levelString.components(separatedBy: "\n")
+        
+        for (row, line) in lines.reversed().enumerated() {
+            for (column, letter) in line.characters.enumerated() {
+                let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
+                createGameObject(fromLetter: letter, withPosition: position)
+            }
         }
     }
     
