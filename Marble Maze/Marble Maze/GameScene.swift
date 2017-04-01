@@ -122,6 +122,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
         } else if node.name == "star" {
+            if let index = gameObjects.index(of: node) {
+                gameObjects.remove(at: index)
+            }
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
