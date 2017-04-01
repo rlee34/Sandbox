@@ -25,9 +25,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager!
     var scoreLabel: SKLabelNode!
+    var gameObjects: [SKNode] = []
     var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
+        }
+    }
+    var currentLevel = 1 {
+        didSet {
+            loadLevel()
         }
     }
     
@@ -63,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     #else
         if let accelerometerData = motionManager.accelerometerData {
-            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * 50, dy: accelerometerData.acceleration.x * -50)
         }
     #endif
     }
@@ -73,16 +79,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: 96, y: 672)
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
         player.physicsBody!.allowsRotation = false
-        player.physicsBody!.linearDamping = 0.5
+        player.physicsBody!.linearDamping = 5
         
         player.physicsBody!.categoryBitMask = CollisionTypes.player.rawValue
         player.physicsBody!.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue | CollisionTypes.finish.rawValue
         player.physicsBody!.collisionBitMask = CollisionTypes.wall.rawValue
+        gameObjects.append(player)
         addChild(player)
     }
 
     func loadLevel() {
-        if let levelPath = Bundle.main.path(forResource: "level1", ofType: "txt") {
+        if let levelPath = Bundle.main.path(forResource: "level\(currentLevel)", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath) {
                 createLevelFromString(levelString: levelString)
             }
@@ -118,7 +125,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
-            // next level
+            self.removeChildren(in: gameObjects)
+            currentLevel += 1
+            createPlayer()
         }
     }
     
@@ -141,6 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
             node.physicsBody!.categoryBitMask = CollisionTypes.wall.rawValue
             node.physicsBody!.isDynamic = false
+            gameObjects.append(node)
             addChild(node)
         case "v": // create vortex
             let node = SKSpriteNode(imageNamed: "vortex")
@@ -152,6 +162,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.physicsBody!.categoryBitMask = CollisionTypes.vortex.rawValue
             node.physicsBody!.contactTestBitMask = CollisionTypes.player.rawValue
             node.physicsBody!.collisionBitMask = 0
+            gameObjects.append(node)
             addChild(node)
         case "s": // create star
             let node = SKSpriteNode(imageNamed: "star")
@@ -162,6 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.physicsBody!.contactTestBitMask = CollisionTypes.player.rawValue
             node.physicsBody!.collisionBitMask = 0
             node.position = position
+            gameObjects.append(node)
             addChild(node)
         case "f": // create finish line
             let node = SKSpriteNode(imageNamed: "finish")
@@ -172,6 +184,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.physicsBody!.contactTestBitMask = CollisionTypes.player.rawValue
             node.physicsBody!.collisionBitMask = 0
             node.position = position
+            gameObjects.append(node)
             addChild(node)
         default:
             break

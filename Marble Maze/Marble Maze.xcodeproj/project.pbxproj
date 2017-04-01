@@ -28,6 +28,7 @@
 		2DA104FA1E8A0C9400F31FEF /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA104ED1E8A0C9400F31FEF /* star@2x.png */; };
 		2DA104FB1E8A0C9400F31FEF /* vortex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA104EE1E8A0C9400F31FEF /* vortex.png */; };
 		2DA104FC1E8A0C9400F31FEF /* vortex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA104EF1E8A0C9400F31FEF /* vortex@2x.png */; };
+		2DA105041E9014FD00F31FEF /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2DA105031E9014FD00F31FEF /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		2DA104ED1E8A0C9400F31FEF /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		2DA104EE1E8A0C9400F31FEF /* vortex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vortex.png; sourceTree = "<group>"; };
 		2DA104EF1E8A0C9400F31FEF /* vortex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vortex@2x.png"; sourceTree = "<group>"; };
+		2DA105031E9014FD00F31FEF /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				2DA104E71E8A0C9400F31FEF /* finish.png */,
 				2DA104E81E8A0C9400F31FEF /* finish@2x.png */,
 				2DA104E91E8A0C9400F31FEF /* level1.txt */,
+				2DA105031E9014FD00F31FEF /* level2.txt */,
 				2DA104EA1E8A0C9400F31FEF /* player.png */,
 				2DA104EB1E8A0C9400F31FEF /* player@2x.png */,
 				2DA104EC1E8A0C9400F31FEF /* star.png */,
@@ -191,6 +194,7 @@
 				2DA104CD1E8A0BDF00F31FEF /* GameScene.sks in Resources */,
 				2DA104D81E8A0BDF00F31FEF /* Assets.xcassets in Resources */,
 				2DA104F11E8A0C9400F31FEF /* background@2x.jpg in Resources */,
+				2DA105041E9014FD00F31FEF /* level2.txt in Resources */,
 				2DA104F01E8A0C9400F31FEF /* background.jpg in Resources */,
 				2DA104DB1E8A0BDF00F31FEF /* LaunchScreen.storyboard in Resources */,
 				2DA104CF1E8A0BDF00F31FEF /* Actions.sks in Resources */,
