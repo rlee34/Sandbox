@@ -12,6 +12,8 @@
 		2DA1053B1E91F36700F31FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA105391E91F36700F31FEF /* Main.storyboard */; };
 		2DA1053D1E91F36700F31FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1053C1E91F36700F31FEF /* Assets.xcassets */; };
 		2DA105401E91F36700F31FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1053E1E91F36700F31FEF /* LaunchScreen.storyboard */; };
+		2DA105491E91F3BB00F31FEF /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA105471E91F3BB00F31FEF /* mouse.png */; };
+		2DA1054A1E91F3BB00F31FEF /* mouse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA105481E91F3BB00F31FEF /* mouse@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		2DA1053C1E91F36700F31FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DA1053F1E91F36700F31FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA105411E91F36700F31FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DA105471E91F3BB00F31FEF /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		2DA105481E91F3BB00F31FEF /* mouse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mouse@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 				2DA105371E91F36700F31FEF /* ViewController.swift */,
 				2DA105391E91F36700F31FEF /* Main.storyboard */,
 				2DA1053C1E91F36700F31FEF /* Assets.xcassets */,
+				2DA105471E91F3BB00F31FEF /* mouse.png */,
+				2DA105481E91F3BB00F31FEF /* mouse@2x.png */,
 				2DA1053E1E91F36700F31FEF /* LaunchScreen.storyboard */,
 				2DA105411E91F36700F31FEF /* Info.plist */,
 			);
@@ -124,7 +130,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA1054A1E91F3BB00F31FEF /* mouse@2x.png in Resources */,
 				2DA105401E91F36700F31FEF /* LaunchScreen.storyboard in Resources */,
+				2DA105491E91F3BB00F31FEF /* mouse.png in Resources */,
 				2DA1053D1E91F36700F31FEF /* Assets.xcassets in Resources */,
 				2DA1053B1E91F36700F31FEF /* Main.storyboard in Resources */,
 			);
@@ -264,7 +272,7 @@
 				DEVELOPMENT_TEAM = 57TPTK935L;
 				INFOPLIST_FILE = "Core Graphics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.creaky-door.Core-Graphics";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rlee34;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -277,7 +285,7 @@
 				DEVELOPMENT_TEAM = 57TPTK935L;
 				INFOPLIST_FILE = "Core Graphics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.creaky-door.Core-Graphics";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rlee34;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
