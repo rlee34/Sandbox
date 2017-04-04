@@ -40,7 +40,13 @@ class ViewController: UIViewController {
     }
 
     func drawRectangle() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
         
+        let img = renderer.image { ctx in
+            // drawing code
+        }
+        
+        imageView.image = img
     }
 
 }
