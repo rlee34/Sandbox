@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  BuildingNode.swift
 //  ExplodingMonkies
 //
 //  Created by Ryan Lee on 4/7/17.
@@ -7,10 +7,8 @@
 //
 
 import SpriteKit
-import GameplayKit
+import UIKit
 
-class GameScene: SKScene {
+class BuildingNode: SKSpriteNode {
     
-    override func didMove(to view: SKView) {
-    }
 }
