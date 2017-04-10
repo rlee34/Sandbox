@@ -41,9 +41,6 @@ class GameViewController: UIViewController {
         currentGame.launch(angle: Int(angleSlider.value), velocity: Int(velocitySlider.value))
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,5 +86,21 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func activatePlayer(number: Int) {
+        if number == 1 {
+            playerNumber.text = "<<< PLAYER ONE"
+        } else {
+            playerNumber.text = "PLAYER TWO >>>"
+        }
+        
+        angleSlider.isHidden = false
+        angleLabel.isHidden = false
+        
+        velocitySlider.isHidden = false
+        velocityLabel.isHidden = false
+        
+        launchButton.isHidden = false
     }
 }
