@@ -14,6 +14,25 @@ class GameViewController: UIViewController {
 
     var currentGame: GameScene!
     
+    @IBOutlet weak var angleSlider: UISlider!
+    @IBOutlet weak var angleLabel: UILabel!
+    @IBOutlet weak var velocitySlider: UISlider!
+    @IBOutlet weak var velocityLabel: UILabel!
+    @IBOutlet weak var launchButton: UIButton!
+    @IBOutlet weak var playerNumber: UILabel!
+    
+    @IBAction func angleChanged(_ sender: Any) {
+    }
+    
+    @IBAction func velocityChanged(_ sender: Any) {
+    }
+    
+    @IBAction func launch(_ sender: Any) {
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -24,10 +24,16 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="45" minValue="0.0" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="GAv-WJ-OwS">
                                 <rect key="frame" x="20" y="20" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="angleChanged:" destination="BV1-FR-VrT" eventType="valueChanged" id="yKa-3H-0fc"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="9Uz-1h-oiH">
                                 <rect key="frame" x="480" y="20" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="velocityChanged:" destination="BV1-FR-VrT" eventType="valueChanged" id="yve-nV-tvQ"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3V0-RF-lJC">
                                 <rect key="frame" x="325" y="24" width="120" height="21"/>
@@ -53,6 +59,9 @@
                                 <state key="normal" title="LAUNCH">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="launch:" destination="BV1-FR-VrT" eventType="touchUpInside" id="JOy-Zr-mdF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;&lt;&lt; PLAYER ONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-sC-yIX">
                                 <rect key="frame" x="370" y="64" width="285" height="35"/>
@@ -65,6 +74,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="angleLabel" destination="3V0-RF-lJC" id="LE2-z9-Qym"/>
+                        <outlet property="angleSlider" destination="GAv-WJ-OwS" id="fxm-XL-NaM"/>
+                        <outlet property="launchButton" destination="MJ4-tZ-6MP" id="k7R-KM-a5M"/>
+                        <outlet property="playerNumber" destination="ivD-sC-yIX" id="tVD-tO-42h"/>
+                        <outlet property="velocityLabel" destination="3Nm-XC-KIN" id="Y1O-Pt-ye1"/>
+                        <outlet property="velocitySlider" destination="9Uz-1h-oiH" id="iwt-iT-Oiw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
