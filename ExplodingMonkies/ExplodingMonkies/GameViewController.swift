@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func velocityChanged(_ sender: Any) {
-        angleLabel.text = "Angle: \(Int(velocitySlider.value))°"
+        velocityLabel.text = "Velocity: \(Int(velocitySlider.value))°"
     }
     
     @IBAction func launch(_ sender: Any) {
