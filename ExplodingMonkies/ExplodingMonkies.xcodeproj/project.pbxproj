@@ -28,6 +28,7 @@
 		2DA105FC1E9822A600F31FEF /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA105F11E9822A600F31FEF /* spark.png */; };
 		2DA105FE1E9822C500F31FEF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA105FD1E9822C500F31FEF /* Helper.swift */; };
 		2DA106001E98232B00F31FEF /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA105FF1E98232B00F31FEF /* BuildingNode.swift */; };
+		2DAD432E1E9DD25C00472DB5 /* Assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD432D1E9DD25C00472DB5 /* Assets.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		2DA105F11E9822A600F31FEF /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2DA105FD1E9822C500F31FEF /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2DA105FF1E98232B00F31FEF /* BuildingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
+		2DAD432D1E9DD25C00472DB5 /* Assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Assets.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				2DA105D61E98220700F31FEF /* GameViewController.swift */,
 				2DA105FD1E9822C500F31FEF /* Helper.swift */,
 				2DA105D81E98220700F31FEF /* Main.storyboard */,
+				2DAD432D1E9DD25C00472DB5 /* Assets.atlas */,
 				2DA105E61E9822A600F31FEF /* Content */,
 				2DA105DB1E98220700F31FEF /* Assets.xcassets */,
 				2DA105DD1E98220700F31FEF /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 				2DA105D11E98220700F31FEF /* GameScene.sks in Resources */,
 				2DA105F31E9822A600F31FEF /* banana@2x.png in Resources */,
 				2DA105F71E9822A600F31FEF /* player1Throw.png in Resources */,
+				2DAD432E1E9DD25C00472DB5 /* Assets.atlas in Resources */,
 				2DA105F21E9822A600F31FEF /* banana.png in Resources */,
 				2DA105F61E9822A600F31FEF /* player.png in Resources */,
 				2DA105DC1E98220700F31FEF /* Assets.xcassets in Resources */,
@@ -374,6 +378,7 @@
 				2DA105E51E98220700F31FEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
