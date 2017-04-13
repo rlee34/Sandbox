@@ -155,11 +155,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     bananaHit(building: secondNode as! BuildingNode, atPoint: contact.contactPoint)
                 }
                 
-                if firstNode.name == "banana" && secondNode.name = "player1" {
+                if firstNode.name == "banana" && secondNode.name == "player1" {
                     destroy(player: player1)
                 }
                 
-                if firstNode.name = "banana" && secondNode.name == "player2" {
+                if firstNode.name == "banana" && secondNode.name == "player2" {
                     destroy(player: player2)
                 }
             }
@@ -174,7 +174,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         banana?.removeFromParent()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self] in
             let newGame = GameScene(size: self.size)
             newGame.viewController = self.viewController
             self.viewController.currentGame = newGame
