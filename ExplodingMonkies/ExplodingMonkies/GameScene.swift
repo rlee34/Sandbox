@@ -15,7 +15,7 @@ enum CollisionTypes: UInt32 {
     case player = 4
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     weak var viewController: GameViewController!
     var buildings = [BuildingNode]()
@@ -30,6 +30,8 @@ class GameScene: SKScene {
         
         createBuildings()
         createPlayers()
+        
+        physicsWorld.contactDelegate = self
     }
     
     func createBuildings() {
