@@ -185,4 +185,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         viewController.activatePlayer(number: currentPlayer)
     }
+    
+    func bananaHit(building: BuildingNode, atPoint contactPoint: CGPoint) {
+        let buildingLocation = convert(contactPoint, to: building)
+        building.hitAt(point: buildingLocation)
+        
+        let explosion = SKEmitterNode(fileNamed: "hitBuilding")!
+        explosion.position = contactPoint
+        addChild(explosion)
+        
+        banana.name = ""
+        banana?.removeFromParent()
+        banana = nil
+        
+        changePlayer()
+    }
 }
