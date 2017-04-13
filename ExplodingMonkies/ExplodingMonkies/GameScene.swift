@@ -34,6 +34,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        if banana != nil {
+            if banana.position.y < -10000 {
+                banana.removeFromParent()
+                banana = nil
+                
+                changePlayer()
+            }
+        }
+    }
+    
     func createBuildings() {
         var currentX: CGFloat = -15
         
