@@ -125,4 +125,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func deg2rad(degrees: Int) -> Double {
         return Double(degrees) * Double.pi / 180.0
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if let firstNode = firstBody.node {
+            if let secondNode = secondBody.node {
+                if firstNode.name == "banana" && secondNode.name == "building" {
+                    bananaHit(building: secondNode as! BuildingNode, atPoint: contact.contactPoint)
+                }
+                
+                if firstNode.name == "banana" && secondNode.name = "player1" {
+                    destroy(player: player1)
+                }
+                
+                if firstNode.name = "banana" && secondNode.name == "player2" {
+                    destroy(player: player2)
+                }
+            }
+        }
+    }
 }
