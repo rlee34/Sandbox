@@ -18,6 +18,8 @@
 		2DA105FE1E9822C500F31FEF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA105FD1E9822C500F31FEF /* Helper.swift */; };
 		2DA106001E98232B00F31FEF /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA105FF1E98232B00F31FEF /* BuildingNode.swift */; };
 		2DAD432E1E9DD25C00472DB5 /* Assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD432D1E9DD25C00472DB5 /* Assets.atlas */; };
+		2DAD43311EA0440900472DB5 /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD432F1EA0440900472DB5 /* hitBuilding.sks */; };
+		2DAD43321EA0440900472DB5 /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD43301EA0440900472DB5 /* hitPlayer.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		2DA105FD1E9822C500F31FEF /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2DA105FF1E98232B00F31FEF /* BuildingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
 		2DAD432D1E9DD25C00472DB5 /* Assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Assets.atlas; sourceTree = "<group>"; };
+		2DAD432F1EA0440900472DB5 /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitBuilding.sks; sourceTree = "<group>"; };
+		2DAD43301EA0440900472DB5 /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitPlayer.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				2DA105D01E98220700F31FEF /* GameScene.sks */,
 				2DA105FF1E98232B00F31FEF /* BuildingNode.swift */,
 				2DA105D21E98220700F31FEF /* Actions.sks */,
+				2DAD432F1EA0440900472DB5 /* hitBuilding.sks */,
+				2DAD43301EA0440900472DB5 /* hitPlayer.sks */,
 				2DA105D41E98220700F31FEF /* GameScene.swift */,
 				2DA105D61E98220700F31FEF /* GameViewController.swift */,
 				2DA105FD1E9822C500F31FEF /* Helper.swift */,
@@ -145,8 +151,10 @@
 				2DA105DA1E98220700F31FEF /* Main.storyboard in Resources */,
 				2DA105D11E98220700F31FEF /* GameScene.sks in Resources */,
 				2DAD432E1E9DD25C00472DB5 /* Assets.atlas in Resources */,
+				2DAD43311EA0440900472DB5 /* hitBuilding.sks in Resources */,
 				2DA105DC1E98220700F31FEF /* Assets.xcassets in Resources */,
 				2DA105DF1E98220700F31FEF /* LaunchScreen.storyboard in Resources */,
+				2DAD43321EA0440900472DB5 /* hitPlayer.sks in Resources */,
 				2DA105D31E98220700F31FEF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
