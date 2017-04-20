@@ -257,7 +257,7 @@
 				TargetAttributes = {
 					51BE9E581A2667CD00578AA0 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = B5C26XE59E;
+						DevelopmentTeam = 57TPTK935L;
 					};
 				};
 			};
@@ -453,10 +453,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B5C26XE59E;
+				DEVELOPMENT_TEAM = 57TPTK935L;
 				INFOPLIST_FILE = Project30/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hackingwithswift.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanlee.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -466,10 +466,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B5C26XE59E;
+				DEVELOPMENT_TEAM = 57TPTK935L;
 				INFOPLIST_FILE = Project30/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hackingwithswift.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanlee.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
