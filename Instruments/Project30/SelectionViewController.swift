@@ -63,6 +63,7 @@ class SelectionViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
 		// find the image for this cell, and load its thumbnail
 		let currentImage = items[indexPath.row % items.count]
@@ -81,6 +82,13 @@ class SelectionViewController: UITableViewController {
         }
 
 		cell.imageView?.image = rounded
+        
+        // give the images a nice shadow to make them look a bit more dramatic
+        cell.imageView?.layer.shadowColor = UIColor.black.cgColor
+        cell.imageView?.layer.shadowOpacity = 1
+        cell.imageView?.layer.shadowRadius = 10
+        cell.imageView?.layer.shadowOffset = CGSize.zero
+        cell.imageView?.layer.shadowPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 90, height: 90)).cgPath
 
 		// each image stores how often it's been tapped
 		let defaults = UserDefaults.standard
