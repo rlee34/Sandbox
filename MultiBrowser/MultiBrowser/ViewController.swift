@@ -54,6 +54,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         webView.layer.borderWidth = 3
     }
     
+    func webViewTapped(_ recognizer: UITapGestureRecognizer) {
+        if let selectedWebView = recognizer.view as? UIWebView {
+            selectWebView(selectedWebView)
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     func deleteWebView() {
         
     }
