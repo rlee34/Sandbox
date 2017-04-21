@@ -52,6 +52,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         
         activeWebView = webView
         webView.layer.borderWidth = 3
+        updateUI(for: webView)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -76,7 +77,45 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     }
     
     func deleteWebView() {
-        
+        if let webView = activeWebView {
+            if let index = stackView.arrangedSubviews.index(of: webView) {
+                stackView.removeArrangedSubview(webView)
+                webView.removeFromSuperview()
+                
+                if stackView.arrangedSubviews.count == 0 {
+                    setDefaultTitle()
+                } else {
+                    var currentIndex = Int(index)
+                    
+                    if currentIndex == stackView.arrangedSubviews.count {
+                        currentIndex = stackView.arrangedSubviews.count - 1
+                    }
+                    
+                    if let newSelectedWebView = stackView.arrangedSubviews[currentIndex] as? UIWebView {
+                        selectWebView(newSelectedWebView)
+                    }
+                }
+            }
+        }
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if webView == activeWebView {
+            updateUI(for: webView)
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.horizontalSizeClass == .compact {
+            stackView.axis = .vertical
+        } else {
+            stackView.axis = .horizontal
+        }
+    }
+    
+    func updateUI(for webView: UIWebView) {
+        title = webView.stringByEvaluatingJavaScript(from: "document.title")
+        addressBar.text = webView.request?.url?.absoluteString ?? ""
     }
     
     override func didReceiveMemoryWarning() {
