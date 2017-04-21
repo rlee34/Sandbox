@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     
     @IBOutlet weak var addressBar: UITextField!
     @IBOutlet weak var stackView: UIStackView!
+    weak var activeWebView: UIWebView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,22 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         
         let url = URL(string: "https://hackingwithswift.com")!
         webView.loadRequest(URLRequest(url: url))
+        
+        webView.layer.borderColor = UIColor.blue.cgColor
+        selectWebView(webView)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(webViewTapped))
+        recognizer.delegate = self
+        webView.addGestureRecognizer(recognizer)
+    }
+    
+    func selectWebView(_ webView: UIWebView) {
+        for view in stackView.arrangedSubviews {
+            view.layer.borderWidth = 0
+        }
+        
+        activeWebView = webView
+        webView.layer.borderWidth = 3
     }
     
     func deleteWebView() {
