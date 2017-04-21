@@ -54,6 +54,17 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         webView.layer.borderWidth = 3
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let webView = activeWebView, let address = addressBar.text {
+            if let url = URL(string: address) {
+                webView.loadRequest(URLRequest(url: url))
+            }
+        }
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func webViewTapped(_ recognizer: UITapGestureRecognizer) {
         if let selectedWebView = recognizer.view as? UIWebView {
             selectWebView(selectedWebView)
