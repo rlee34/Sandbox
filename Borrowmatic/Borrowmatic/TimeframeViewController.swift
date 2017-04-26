@@ -12,6 +12,7 @@ import UIKit
 
 class TimeframeViewController: UIViewController, GLCalendarViewDelegate {
 
+
     @IBOutlet weak var calendarView: GLCalendarView!
     
     
@@ -50,7 +51,7 @@ class TimeframeViewController: UIViewController, GLCalendarViewDelegate {
 
         
     }
-    @IBAction func donePressed(_ sender: Any) {
+    @IBAction func donePressed(_ sender: UIButton) {
         
         
         self.dismiss(animated: true, completion: nil)
