@@ -28,6 +28,7 @@
 		2DA89DE01EB131120014DF79 /* gl-calendar-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DD31EB131120014DF79 /* gl-calendar-shadow.png */; };
 		2DA89DE11EB131120014DF79 /* gl-calendar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DD41EB131120014DF79 /* gl-calendar-shadow@2x.png */; };
 		2DA89DE21EB131120014DF79 /* gl-calendar-shadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DD51EB131120014DF79 /* gl-calendar-shadow@3x.png */; };
+		2DCB07DD1EB133C9006C9912 /* TimeframeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB07DC1EB133C9006C9912 /* TimeframeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		2DA89DD41EB131120014DF79 /* gl-calendar-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow@2x.png"; sourceTree = "<group>"; };
 		2DA89DD51EB131120014DF79 /* gl-calendar-shadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow@3x.png"; sourceTree = "<group>"; };
 		2DA89DE31EB1314B0014DF79 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		2DCB07DC1EB133C9006C9912 /* TimeframeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeframeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				2DA89DE41EB131EF0014DF79 /* Helper */,
 				2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */,
 				2DA89DE31EB1314B0014DF79 /* BridgingHeader.h */,
+				2DCB07DC1EB133C9006C9912 /* TimeframeViewController.swift */,
 				2DA89DA51EB101350014DF79 /* AppDelegate.swift */,
 				2DA89DAA1EB101350014DF79 /* MasterViewController.swift */,
 				2DA89DAE1EB101350014DF79 /* Main.storyboard */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DA89DD61EB131120014DF79 /* GLCalendarDateRange.m in Sources */,
+				2DCB07DD1EB133C9006C9912 /* TimeframeViewController.swift in Sources */,
 				2DA89DA61EB101350014DF79 /* AppDelegate.swift in Sources */,
 				2DA89DDD1EB131120014DF79 /* GLDateUtils.m in Sources */,
 				2DA89DA91EB101350014DF79 /* Borrowmatic.xcdatamodeld in Sources */,
