@@ -42,6 +42,10 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         if let titleTextField = itemTitleTextField {
             if let borrowItem = detailItem {
                 titleTextField.text = borrowItem.title
+                
+                if let availableImageData = borrowItem.image as? Data {
+                    itemImageView.image = UIImage(data: availableImageData)
+                }
             }
         }
     }

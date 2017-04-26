@@ -74,8 +74,18 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let borrowItemObject = self.fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = borrowItemObject.title
+        
+        configureCell(cell, withBorrowItem: borrowItemObject)
         return cell
+    }
+    
+    func configureCell(_ cell: UITableViewCell, withBorrowItem borrowItem: BorrowItem) {
+        cell.textLabel?.text = borrowItem.title
+        
+        if let availableImageData = borrowItem.image as? Data {
+            cell.imageView?.image = UIImage(data: availableImageData)
+        }
+        
     }
     
     // MARK: - Segues
@@ -141,9 +151,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
-    }
+
 
     
 
