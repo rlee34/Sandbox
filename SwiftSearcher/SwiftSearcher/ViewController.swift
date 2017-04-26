@@ -104,7 +104,7 @@ class ViewController: UITableViewController {
         attributeSet.title = project[0]
         attributeSet.contentDescription = project[1]
         
-        let item = CSSearchableItem(uniqueIdentifier: "\(item)", domainIdentifier: com.hackingwithswift, attributeSet: attributeSet)
+        let item = CSSearchableItem(uniqueIdentifier: "\(item)", domainIdentifier: "com.hackingwithswift", attributeSet: attributeSet)
         CSSearchableIndex.default().indexSearchableItems([item]) { error in
             if let error = error {
                 print("Indexing error: \(error.localizedDescription)")
@@ -115,7 +115,13 @@ class ViewController: UITableViewController {
     }
     
     func deindex(item: Int) {
-        
+        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: ["\(item)"]) { error in
+            if let error = error {
+                print("Deindexing error: \(error.localizedDescription)")
+            } else {
+                print("Search item successfully removed!")
+            }
+        }
     }
     
     func makeAttributedString(title: String, subtitle: String) -> NSAttributedString {
