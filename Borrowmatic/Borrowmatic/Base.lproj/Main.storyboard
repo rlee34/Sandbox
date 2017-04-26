@@ -94,12 +94,16 @@
                                 <segment title="Sort by Person"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="meF-6E-e4D"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="meF-6E-e4D">
+                            <connections>
+                                <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="addItem" id="Ird-hY-3Pr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="-630"/>
+            <point key="canvasLocation" x="782" y="-630"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qFP-ro-sRW">
@@ -221,8 +225,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9Zb-4J-epQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2XX-cm-RqO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2XX-cm-RqO">
+                            <connections>
+                                <action selector="saveItem:" destination="4ie-5p-eRx" id="cpH-Xm-4Ge"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="borrowedAtLabel" destination="iID-l7-4sa" id="Wpz-5g-GoC"/>
+                        <outlet property="itemImageView" destination="9Eo-rR-bHm" id="e0d-Hf-md1"/>
+                        <outlet property="itemTitleTextField" destination="d3o-3k-FRy" id="Lpc-oQ-Z3f"/>
+                        <outlet property="personImageView" destination="RuH-1B-vuo" id="1h6-LM-ThV"/>
+                        <outlet property="personTextField" destination="wh6-PU-aD6" id="piE-a8-0Ud"/>
+                        <outlet property="returnedAtLabel" destination="gH9-xT-xUr" id="Ehu-CS-YFc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVE-cx-jmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,6 +265,6 @@
         <image name="DummyImage" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Ird-hY-3Pr"/>
     </inferredMetricsTieBreakers>
 </document>

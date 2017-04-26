@@ -10,10 +10,10 @@
 		2DA89DA61EB101350014DF79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DA51EB101350014DF79 /* AppDelegate.swift */; };
 		2DA89DA91EB101350014DF79 /* Borrowmatic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DA71EB101350014DF79 /* Borrowmatic.xcdatamodeld */; };
 		2DA89DAB1EB101350014DF79 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DAA1EB101350014DF79 /* MasterViewController.swift */; };
-		2DA89DAD1EB101350014DF79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DAC1EB101350014DF79 /* DetailViewController.swift */; };
 		2DA89DB01EB101350014DF79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DAE1EB101350014DF79 /* Main.storyboard */; };
 		2DA89DB21EB101350014DF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DB11EB101350014DF79 /* Assets.xcassets */; };
 		2DA89DB51EB101350014DF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DB31EB101350014DF79 /* LaunchScreen.storyboard */; };
+		2DA89DBD1EB122A40014DF79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +21,11 @@
 		2DA89DA51EB101350014DF79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA89DA81EB101350014DF79 /* Borrowmatic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Borrowmatic.xcdatamodel; sourceTree = "<group>"; };
 		2DA89DAA1EB101350014DF79 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		2DA89DAC1EB101350014DF79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2DA89DAF1EB101350014DF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DA89DB11EB101350014DF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DA89DB41EB101350014DF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA89DB61EB101350014DF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +58,9 @@
 		2DA89DA41EB101350014DF79 /* Borrowmatic */ = {
 			isa = PBXGroup;
 			children = (
+				2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */,
 				2DA89DA51EB101350014DF79 /* AppDelegate.swift */,
 				2DA89DAA1EB101350014DF79 /* MasterViewController.swift */,
-				2DA89DAC1EB101350014DF79 /* DetailViewController.swift */,
 				2DA89DAE1EB101350014DF79 /* Main.storyboard */,
 				2DA89DB11EB101350014DF79 /* Assets.xcassets */,
 				2DA89DB31EB101350014DF79 /* LaunchScreen.storyboard */,
@@ -146,7 +146,7 @@
 				2DA89DA61EB101350014DF79 /* AppDelegate.swift in Sources */,
 				2DA89DA91EB101350014DF79 /* Borrowmatic.xcdatamodeld in Sources */,
 				2DA89DAB1EB101350014DF79 /* MasterViewController.swift in Sources */,
-				2DA89DAD1EB101350014DF79 /* DetailViewController.swift in Sources */,
+				2DA89DBD1EB122A40014DF79 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +308,7 @@
 				2DA89DBB1EB101350014DF79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
