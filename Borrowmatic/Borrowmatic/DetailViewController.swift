@@ -92,6 +92,27 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         self.present(imagePickerVC, animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            let scaledImage = UIImage.scaleImage(image: image, toWidth: 120, andHeight: 120)
+            
+            if picturePurposeSelector == .item {
+                itemImageView.image = scaledImage
+                itemImageAdded = true
+            } else {
+                personImageView.image = scaledImage
+                personImageAdded = true
+            }
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

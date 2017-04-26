@@ -14,6 +14,7 @@
 		2DA89DB21EB101350014DF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DB11EB101350014DF79 /* Assets.xcassets */; };
 		2DA89DB51EB101350014DF79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA89DB31EB101350014DF79 /* LaunchScreen.storyboard */; };
 		2DA89DBD1EB122A40014DF79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */; };
+		2DA89DBF1EB12DB70014DF79 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA89DBE1EB12DB70014DF79 /* UIImage+Scale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2DA89DB41EB101350014DF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DA89DB61EB101350014DF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2DA89DBE1EB12DB70014DF79 /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA89DBC1EB122A40014DF79 /* DetailViewController.swift */,
+				2DA89DBE1EB12DB70014DF79 /* UIImage+Scale.swift */,
 				2DA89DA51EB101350014DF79 /* AppDelegate.swift */,
 				2DA89DAA1EB101350014DF79 /* MasterViewController.swift */,
 				2DA89DAE1EB101350014DF79 /* Main.storyboard */,
@@ -146,6 +149,7 @@
 				2DA89DA61EB101350014DF79 /* AppDelegate.swift in Sources */,
 				2DA89DA91EB101350014DF79 /* Borrowmatic.xcdatamodeld in Sources */,
 				2DA89DAB1EB101350014DF79 /* MasterViewController.swift in Sources */,
+				2DA89DBF1EB12DB70014DF79 /* UIImage+Scale.swift in Sources */,
 				2DA89DBD1EB122A40014DF79 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
