@@ -64,6 +64,10 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         if detailItem == nil {
             let borrowItem = BorrowItem(context: moc)
             borrowItem.title = itemTitleTextField.text
+            
+            if let itemImage = itemImageView.image {
+                borrowItem.image = NSData(data: UIImageJPEGRepresentation(itemImage, 0.3)!)
+            }
         }
         
         do {
