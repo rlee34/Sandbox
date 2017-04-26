@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 
     @IBOutlet weak var itemTitleTextField: UITextField!
@@ -28,14 +28,34 @@ class DetailViewController: UITableViewController {
         }
     }
     
+    var personImageAdded = false
+    var itemImageAdded = false
+    
+    enum PicturePurpose {
+        case item
+        case person
+    }
+    
+    var picturePurposeSelector: PicturePurpose = .item
+    
     func configureView() {
-        
+        if let titleTextField = itemTitleTextField {
+            if let borrowItem = detailItem {
+                titleTextField.text = borrowItem.title
+            }
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let itemGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.addPictureForItem))
+        itemImageView.addGestureRecognizer(itemGestureRecognizer)
+        
+        let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.addPictureForPerson))
+        personImageView.addGestureRecognizer(personGestureRecognizer)
         
         self.configureView()
     }
@@ -51,6 +71,25 @@ class DetailViewController: UITableViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func addPictureForItem() {
+        picturePurposeSelector = .item
+        addImageWithPurpose()
+    }
+    
+    func addPictureForPerson() {
+        picturePurposeSelector = .person
+        addImageWithPurpose()
+    }
+    
+    func addImageWithPurpose() {
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.delegate = self
+        
+        imagePickerVC.sourceType = .photoLibrary
+        
+        self.present(imagePickerVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
