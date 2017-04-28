@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TimeFrameDelegate {
 
 
     @IBOutlet weak var itemTitleTextField: UITextField!
@@ -119,6 +119,13 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTimeframeVC" {
+            let timeframeVC = segue.destination as! TimeframeViewController
+            timeframeVC.timeFrameDelegate = self
+        }
     }
     
     override func didReceiveMemoryWarning() {
