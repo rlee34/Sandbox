@@ -128,6 +128,14 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         }
     }
     
+    func didSelectDateRange(range: GLCalendarDateRange) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: range.beginDate))"
+        returnedAtLabel.text = "Returned at: \(dateFormatter.string(from: range.endDate))"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
