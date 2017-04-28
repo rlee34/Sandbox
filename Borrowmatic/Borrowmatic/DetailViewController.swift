@@ -94,6 +94,39 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
             if let availableEndDate = endDate {
                 borrowItem.endDate = availableEndDate
             }
+            
+            let personRequest:NSFetchRequest<Person> = Person.fetchRequest()
+            
+            if let name = personTextField.text {
+                personRequest.predicate = NSPredicate(format: "name == %@", name)
+            }
+            
+            personRequest.fetchLimit = 1
+            
+            let numberOfResults = try! moc.count(for: personRequest)
+            
+            if numberOfResults == 0 {
+                let newPerson = Person(context: moc)
+                newPerson.name = personTextField.text
+                
+                if let personImageToSave = personImageView.image {
+                    newPerson.image = NSData(data: UIImageJPEGRepresentation(personImageToSave, 0.3)!)
+                }
+                
+                newPerson.addToBorrowItem(borrowItem)
+            } else {
+                var items = [Person]()
+                do {
+                    try items = moc.fetch(personRequest)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                if let foundPerson = items.first {
+                    foundPerson.addToBorrowItem(borrowItem)
+                }
+            }
+            
         } else {
             if let availableStartDate = startDate {
                 detailItem?.startDate = availableStartDate
