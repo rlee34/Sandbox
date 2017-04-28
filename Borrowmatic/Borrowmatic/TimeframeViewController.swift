@@ -8,7 +8,9 @@
 
 import UIKit
 
-
+protocol TimeFrameDelegate {
+    func didSelectDateRange(range: GLCalendarDateRange)
+}
 
 class TimeframeViewController: UIViewController, GLCalendarViewDelegate {
 
@@ -17,6 +19,7 @@ class TimeframeViewController: UIViewController, GLCalendarViewDelegate {
     
     
     var timeFrame:GLCalendarDateRange? = nil
+    var timeFrameDelegate:TimeFrameDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,11 @@ class TimeframeViewController: UIViewController, GLCalendarViewDelegate {
     }
     @IBAction func donePressed(_ sender: UIButton) {
         
+        if let selectedTimeFrame = timeFrame {
+            if timeFrameDelegate != nil {
+                timeFrameDelegate?.didSelectDateRange(range: selectedTimeFrame)
+            }
+        }
         
         self.dismiss(animated: true, completion: nil)
 
