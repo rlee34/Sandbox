@@ -53,12 +53,20 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyy"
                 
-                if let availableStartDate = detailItem?.startDate as? Date {
+                if let availableStartDate = borrowItem.startDate as? Date {
                     borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: availableStartDate))"
                 }
                 
-                if let availableEndDate = detailItem?.endDate as? Date {
+                if let availableEndDate = borrowItem.endDate as? Date {
                     returnedAtLabel.text = "Return at: \(dateFormatter.string(from: availableEndDate))"
+                }
+                
+                if let associatedPerson = borrowItem.person {
+                    personTextField.text = associatedPerson.name
+                    
+                    if let personImageData = associatedPerson.image as? Data {
+                        personImageView.image = UIImage(data: personImageData)
+                    }
                 }
             }
         }
