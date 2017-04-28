@@ -38,6 +38,9 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     
     var picturePurposeSelector: PicturePurpose = .item
     
+    var startDate: NSDate?
+    var endDate: NSDate?
+    
     func configureView() {
         if let titleTextField = itemTitleTextField {
             if let borrowItem = detailItem {
@@ -45,6 +48,17 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                 
                 if let availableImageData = borrowItem.image as? Data {
                     itemImageView.image = UIImage(data: availableImageData)
+                }
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                
+                if let availableStartDate = detailItem?.startDate as? Date {
+                    borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: availableStartDate))"
+                }
+                
+                if let availableEndDate = detailItem?.endDate as? Date {
+                    returnedAtLabel.text = "Return at: \(dateFormatter.string(from: availableEndDate))"
                 }
             }
         }
@@ -71,6 +85,22 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
             
             if let itemImage = itemImageView.image {
                 borrowItem.image = NSData(data: UIImageJPEGRepresentation(itemImage, 0.3)!)
+            }
+            
+            if let availableStartDate = startDate {
+                borrowItem.startDate = availableStartDate
+            }
+            
+            if let availableEndDate = endDate {
+                borrowItem.endDate = availableEndDate
+            }
+        } else {
+            if let availableStartDate = startDate {
+                detailItem?.startDate = availableStartDate
+            }
+            
+            if let availableEndDate = endDate {
+                detailItem?.endDate = availableEndDate
             }
         }
         
@@ -134,6 +164,9 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         
         borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: range.beginDate))"
         returnedAtLabel.text = "Returned at: \(dateFormatter.string(from: range.endDate))"
+        
+        startDate = range.beginDate as NSDate
+        endDate = range.endDate as NSDate
     }
     
     override func didReceiveMemoryWarning() {

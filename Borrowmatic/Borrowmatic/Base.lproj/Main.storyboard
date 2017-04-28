@@ -166,7 +166,7 @@
                                                     <rect key="frame" x="136" y="89" width="131" height="30"/>
                                                     <state key="normal" title="Choose Timeframe"/>
                                                     <connections>
-                                                        <segue destination="G7C-9k-ZRH" kind="presentation" id="uTw-6I-BBh"/>
+                                                        <segue destination="G7C-9k-ZRH" kind="presentation" identifier="showTimeframeVC" id="uTw-6I-BBh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
