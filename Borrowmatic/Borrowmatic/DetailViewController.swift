@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TimeFrameDelegate {
+class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TimeFrameDelegate, MLPAutoCompleteTextFieldDelegate, MLPAutoCompleteTextFieldDataSource {
 
 
     @IBOutlet weak var itemTitleTextField: UITextField!
@@ -17,7 +17,7 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     @IBOutlet weak var borrowedAtLabel: UILabel!
     @IBOutlet weak var returnedAtLabel: UILabel!
     @IBOutlet weak var personImageView: UIImageView!
-    @IBOutlet weak var personTextField: UITextField!
+    @IBOutlet weak var personTextField: MLPAutoCompleteTextField!
     
     var moc:NSManagedObjectContext!
     
@@ -76,6 +76,11 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        personTextField.autoCompleteDelegate = self
+        personTextField.autoCompleteDataSource = self
+        personTextField.autoCompleteTableAppearsAsKeyboardAccessory = true
+        personTextField.autoCompleteTableBackgroundColor = UIColor.white
         
         let itemGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.addPictureForItem))
         itemImageView.addGestureRecognizer(itemGestureRecognizer)
@@ -208,6 +213,28 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         
         startDate = range.beginDate as NSDate
         endDate = range.endDate as NSDate
+    }
+    
+    func autoCompleteTextField(_ textField: MLPAutoCompleteTextField!, possibleCompletionsFor string: String!) -> [Any]! {
+        let fetchRequest:NSFetchRequest<Person> = Person.fetchRequest()
+        
+        var personObjects = [Person]()
+        
+        do {
+            personObjects = try moc.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        var nameArray = [String]()
+        
+        for person in personObjects {
+            if let name = person.name {
+                nameArray.append(name)
+            }
+        }
+        
+        return nameArray
     }
     
     override func didReceiveMemoryWarning() {
