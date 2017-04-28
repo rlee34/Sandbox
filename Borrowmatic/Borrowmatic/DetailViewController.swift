@@ -51,7 +51,7 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                 }
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy"
+                dateFormatter.dateFormat = "MM/dd/yyy"
                 
                 if let availableStartDate = detailItem?.startDate as? Date {
                     borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: availableStartDate))"
@@ -160,7 +160,7 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     
     func didSelectDateRange(range: GLCalendarDateRange) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "MM/dd/yyy"
         
         borrowedAtLabel.text = "Borrowed at: \(dateFormatter.string(from: range.beginDate))"
         returnedAtLabel.text = "Returned at: \(dateFormatter.string(from: range.endDate))"
