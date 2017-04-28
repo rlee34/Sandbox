@@ -237,6 +237,25 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         return nameArray
     }
     
+    func autoCompleteTextField(_ textField: MLPAutoCompleteTextField!, didSelectAutoComplete selectedString: String!, withAutoComplete selectedObject: MLPAutoCompletionObject!, forRowAt indexPath: IndexPath!) {
+        let predicate = NSPredicate(format: "name == %@", selectedString)
+        
+        let fetchRequest:NSFetchRequest<Person> = Person.fetchRequest()
+        fetchRequest.predicate = predicate
+        
+        var selectedPerson:Person?
+        
+        do {
+            selectedPerson = try moc.fetch(fetchRequest).first
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        if let imageData = selectedPerson?.image as? Data {
+            personImageView.image = UIImage(data: imageData)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
