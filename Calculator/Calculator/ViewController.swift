@@ -45,9 +45,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchAddButton(_ sender: UIButton) {
-        operation = Operator.add
-        leftHandNumber = calculatorWindow.text
-        calculatorWindow.text = "0"
+        if leftHandNumber == nil {
+            operation = .add
+            leftHandNumber = calculatorWindow.text
+            calculatorWindow.text = "0"
+        } else if rightHandNumber == nil {
+            operation = .add
+            rightHandNumber = calculatorWindow.text
+            addCurrentWith(leftNumber: leftHandNumber!)
+            leftHandNumber = calculatorWindow.text
+        }
+        
         userIsCurrentlyTyping = false
     }
     
@@ -59,6 +67,7 @@ class ViewController: UIViewController {
             if let leftHandNumber = leftHandNumber {
                 addCurrentWith(leftNumber: leftHandNumber)
             }
+            leftHandNumber = nil
         case .subtract:
             break
         case .multiply:
@@ -74,9 +83,9 @@ class ViewController: UIViewController {
     func addCurrentWith(leftNumber: String) {
         if let rightNumber = rightHandNumber {
             let sum = Double(leftNumber)! + Double(rightNumber)!
-            calculatorWindow.text = String(sum)
-            leftHandNumber = String(sum)
-            rightHandNumber = nil
+                calculatorWindow.text = String(sum)
+                rightHandNumber = nil
+                leftHandNumber = nil
         }
     }
     
