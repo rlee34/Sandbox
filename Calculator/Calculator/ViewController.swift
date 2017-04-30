@@ -10,13 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var userIsCurrentlyTyping = false
+    
     @IBOutlet weak var calculatorWindow: UILabel!
     
     @IBAction func touchDigit(_ sender: UIButton) {
         if let digit = sender.currentTitle {
-            print(digit)
+            if userIsCurrentlyTyping {
+                let textInWindow = calculatorWindow.text!
+                calculatorWindow.text = textInWindow + digit
+            } else {
+                calculatorWindow.text = digit
+            }
         }
         
+        userIsCurrentlyTyping = true
     }
     
 }
