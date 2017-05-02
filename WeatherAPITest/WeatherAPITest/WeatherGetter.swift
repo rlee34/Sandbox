@@ -20,7 +20,17 @@ class WeatherGetter {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("Data:\n\(data!)")
+                do {
+                    let weather = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+                    
+                    print("Date and time: \(weather["dt"])")
+                    print("City: \(weather["name"])")
+                    
+                    print("Longitude: \(weather["coord"]!["lon"]!!)")
+                    print("Latitude: \(weather["coord"]!["lat"]!!)")
+                } catch let jsonError as NSError {
+                    print(jsonError.localizedDescription)
+                }
             }
         }
         
