@@ -74,7 +74,14 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
     }
     
     func didNotGetWeather(error: Error) {
-        
+        DispatchQueue.main.async {
+            let title = "Unable to get weather."
+            let message = "The weather service isn't responding."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+    
 }
 
