@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WeatherGetterDelegate {
 
+    var weather: WeatherGetter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let weather = WeatherGetter()
-        weather.getWeather(city: "Tampa")
+        weather = WeatherGetter(delegate: self)
+        weather.getWeatherBy(city: "Tampa")
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +24,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func didGetWeather(weather: Weather) {
+        
+    }
+    
+    func didNotGetWeather(error: NSError) {
+        
+    }
 }
 
