@@ -28,7 +28,7 @@ class ViewController: UIViewController, WeatherGetterDelegate {
         
     }
     
-    func didNotGetWeather(error: NSError) {
+    func didNotGetWeather(error: Error) {
         
     }
 }

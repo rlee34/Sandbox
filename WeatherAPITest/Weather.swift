@@ -67,7 +67,7 @@ struct Weather {
         
         let windDict = weatherData["wind"] as! [String: AnyObject]
         windSpeed = windDict["speed"] as! Double
-        windDirection = windDict["deg"] as? Double //
+        windDirection = windDict["deg"] as? Double
         
         if weatherData["rain"] != nil {
             let rainDict = weatherData["rain"] as! [String: AnyObject]
@@ -80,6 +80,5 @@ struct Weather {
         country = sysDict["country"] as! String
         sunrise = NSDate(timeIntervalSince1970: sysDict["sunrise"] as! TimeInterval)
         sunset = NSDate(timeIntervalSince1970: sysDict["sunset"] as! TimeInterval)
-        
     }
 }

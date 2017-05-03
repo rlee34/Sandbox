@@ -10,7 +10,7 @@ import Foundation
 
 protocol WeatherGetterDelegate {
     func didGetWeather(weather: Weather)
-    func didNotGetWeather(error: NSError)
+    func didNotGetWeather(error: Error)
 }
 
 class WeatherGetter {
@@ -32,19 +32,17 @@ class WeatherGetter {
         let session = URLSession.shared
  
         let dataTask = session.dataTask(with: weatherRequestURL) { (data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
+            if let networkError = error {
+                self.delegate.didNotGetWeather(error: networkError)
             } else {
                 do {
-                    let weather = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+                    let weatherData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
                     
-                    print("Date and time: \(weather["dt"]!)")
-                    print("City: \(weather["name"])")
+                    let weather = Weather(weatherData: weatherData)
                     
-                    print("Longitude: \(weather["coord"]!["lon"]!!)")
-                    print("Latitude: \(weather["coord"]!["lat"]!!)")
+                    self.delegate.didGetWeather(weather: weather)
                 } catch let jsonError as NSError {
-                    print(jsonError.localizedDescription)
+                    self.delegate.didNotGetWeather(error: jsonError)
                 }
             }
         }
