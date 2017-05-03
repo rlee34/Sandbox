@@ -56,7 +56,21 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
     
 
     func didGetWeather(weather: Weather) {
-        
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.city
+            self.weatherLabel.text = weather.weatherDescription
+            self.temperatureLabel.text = "\(Int(round(weather.tempFahrenheit)))°"
+            self.cloudCoverLabel.text = "\(weather.cloudCover)%"
+            self.windLabel.text = "\(weather.windSpeed) m/s"
+            
+            if let rain = weather.rainfallInLast3Hours {
+                self.rainLabel.text = "\(rain) mm"
+            } else {
+                self.rainLabel.text = "None"
+            }
+            
+            self.humidityLabel.text = "\(weather.humidity)%"
+        }
     }
     
     func didNotGetWeather(error: Error) {
