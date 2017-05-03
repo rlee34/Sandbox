@@ -27,6 +27,7 @@ class WeatherGetter {
         let weatherRequestURL = URL(string: "\(openWeatherMapBaseURL)?APPID=\(openWeatherMapAPIKey)&q=\(city)")!
         getWeather(weatherRequestURL: weatherRequestURL)
     }
+    
     private func getWeather(weatherRequestURL: URL) {
         let session = URLSession.shared
  
