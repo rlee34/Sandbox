@@ -83,5 +83,23 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).replacingOccurrences(of: String(describing: range), with: string)
+        getCityWeatherButton.isEnabled = prospectiveText.characters.count > 0
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        textField.text = ""
+        getCityWeatherButton.isEnabled = false
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        getWeatherForCityButtonTapped(getCityWeatherButton)
+        return true
+    }
 }
 
