@@ -47,6 +47,13 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func getWeatherForCityButtonTapped(_ sender: UIButton) {
+        if let text = cityTextField.text {
+            weather.getWeatherBy(city: text)
+        }
+    }
+    
 
     func didGetWeather(weather: Weather) {
         
