@@ -49,9 +49,11 @@ class ViewController: UIViewController, WeatherGetterDelegate, UITextFieldDelega
     }
     
     @IBAction func getWeatherForCityButtonTapped(_ sender: UIButton) {
-        if let text = cityTextField.text {
-            weather.getWeatherBy(city: text)
+        guard let text = cityTextField.text, !text.isEmpty else {
+            return
         }
+        
+        weather.getWeatherBy(city: text)
     }
     
 
