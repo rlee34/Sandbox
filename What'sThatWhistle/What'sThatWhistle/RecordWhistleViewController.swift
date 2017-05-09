@@ -6,12 +6,16 @@
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
 class RecordWhistleViewController: UIViewController {
     
     var stackView: UIStackView!
-
+    var recordButton: UIButton!
+    var recordingSession: AVAudioSession!
+    var whistleRecorder: AVAudioRecorder!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
