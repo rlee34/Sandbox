@@ -129,9 +129,18 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    func recordTapped() {
+        if whistleRecorder == nil {
+            startRecording()
+        } else {
+            finishRecording(success: true)
+        }
+    }
+    
     func nextTapped() {
         
     }
+    
     /*
     // MARK: - Navigation
 
