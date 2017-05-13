@@ -141,6 +141,11 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
         
     }
     
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false)
+        }
+    }
     /*
     // MARK: - Navigation
 
