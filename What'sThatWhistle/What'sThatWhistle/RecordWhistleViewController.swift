@@ -148,6 +148,13 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
     func recordTapped() {
         if whistleRecorder == nil {
             startRecording()
+            if !playButton.isHidden {
+                UIView.animate(withDuration: 0.35) { [unowned self] in
+                    self.playButton.isHidden = true
+                    self.playButton.alpha = 0
+                    
+                }
+            }
         } else {
             finishRecording(success: true)
         }
