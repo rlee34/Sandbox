@@ -129,6 +129,12 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
         
         if success {
             recordButton.setTitle("Tap to Re-record", for: .normal)
+            if playButton.isHidden {
+                UIView.animate(withDuration: 0.35) { [unowned self] in
+                    self.playButton.isHidden = false
+                    self.playButton.alpha = 1
+                }
+            }
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         } else {
             recordButton.setTitle("Tap to Record", for: .normal)
