@@ -16,6 +16,7 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
     var recordingSession: AVAudioSession!
     var whistleRecorder: AVAudioRecorder!
     var playButton: UIButton!
+    var whistlePlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +158,19 @@ class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
             }
         } else {
             finishRecording(success: true)
+        }
+    }
+    
+    func playTapped() {
+        let audioURL = RecordWhistleViewController.getWhistleURL()
+        
+        do {
+            whistlePlayer = try AVAudioPlayer(contentsOf: audioURL)
+            whistlePlayer.play()
+        } catch {
+            let ac = UIAlertController(title: "Playback failed", message: "There was a problem playing your whistle; please try re-recording", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
         }
     }
     
