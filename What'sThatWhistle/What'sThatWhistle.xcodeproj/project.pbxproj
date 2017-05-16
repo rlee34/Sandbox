@@ -13,6 +13,7 @@
 		2D818FFE1EC01C52006C1CE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D818FFD1EC01C52006C1CE9 /* Assets.xcassets */; };
 		2D8190011EC01C52006C1CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D818FFF1EC01C52006C1CE9 /* LaunchScreen.storyboard */; };
 		2D8190091EC01E29006C1CE9 /* RecordWhistleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8190081EC01E29006C1CE9 /* RecordWhistleViewController.swift */; };
+		2D81900B1ECA98B1006C1CE9 /* SelectGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81900A1ECA98B1006C1CE9 /* SelectGenreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2D8190001EC01C52006C1CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D8190021EC01C52006C1CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D8190081EC01E29006C1CE9 /* RecordWhistleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordWhistleViewController.swift; sourceTree = "<group>"; };
+		2D81900A1ECA98B1006C1CE9 /* SelectGenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGenreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2D818FF61EC01C52006C1CE9 /* AppDelegate.swift */,
 				2D818FF81EC01C52006C1CE9 /* ViewController.swift */,
 				2D8190081EC01E29006C1CE9 /* RecordWhistleViewController.swift */,
+				2D81900A1ECA98B1006C1CE9 /* SelectGenreViewController.swift */,
 				2D818FFA1EC01C52006C1CE9 /* Main.storyboard */,
 				2D818FFD1EC01C52006C1CE9 /* Assets.xcassets */,
 				2D818FFF1EC01C52006C1CE9 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				2D818FF91EC01C52006C1CE9 /* ViewController.swift in Sources */,
 				2D818FF71EC01C52006C1CE9 /* AppDelegate.swift in Sources */,
+				2D81900B1ECA98B1006C1CE9 /* SelectGenreViewController.swift in Sources */,
 				2D8190091EC01E29006C1CE9 /* RecordWhistleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
