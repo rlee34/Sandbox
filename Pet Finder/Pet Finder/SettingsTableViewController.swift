@@ -40,11 +40,17 @@ class SettingsTableViewController: UITableViewController {
 // MARK: - Actions
 private extension SettingsTableViewController {
 
+  
+  
   @objc func dismissAnimated() {
     dismiss(animated: true)
   }
 
   @IBAction func applyTheme(_ sender: UIButton) {
+    if let selectedTheme = Theme(rawValue: themeSelector.selectedSegmentIndex) {
+      selectedTheme.apply()
+    }
+    
     dismissAnimated()
   }
 }
