@@ -31,4 +31,10 @@ enum Theme: Int {
     }
   }
   
+  func apply() {
+    UserDefaults.standard.set(rawValue, forKey: Keys.selectedTheme)
+    UserDefaults.standard.synchronize()
+    
+    UIApplication.shared.delegate?.window??.tintColor = mainColor
+  }
 }
