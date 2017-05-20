@@ -31,6 +31,19 @@ enum Theme: Int {
     }
   }
   
+  var barStyle: UIBarStyle {
+    switch self {
+    case .default, .graphical:
+      return .default
+    case .dark:
+      return .black
+    }
+  }
+  
+  var navigationBackgroundImage: UIImage? {
+    return self == .graphical ? UIImage(named: "navBackground") : nil
+  }
+  
   func apply() {
     UserDefaults.standard.set(rawValue, forKey: Keys.selectedTheme)
     UserDefaults.standard.synchronize()
