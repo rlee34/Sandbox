@@ -49,5 +49,8 @@ enum Theme: Int {
     UserDefaults.standard.synchronize()
     
     UIApplication.shared.delegate?.window??.tintColor = mainColor
+    
+    UINavigationBar.appearance().barStyle = barStyle
+    UINavigationBar.appearance().setBackgroundImage(navigationBackgroundImage, for: .default)
   }
 }
