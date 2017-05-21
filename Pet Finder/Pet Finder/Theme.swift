@@ -52,5 +52,8 @@ enum Theme: Int {
     
     UINavigationBar.appearance().barStyle = barStyle
     UINavigationBar.appearance().setBackgroundImage(navigationBackgroundImage, for: .default)
+    
+    UINavigationBar.appearance().backIndicatorImage = UIImage(named: "backArrow")
+    UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "backArrowMask")
   }
 }
