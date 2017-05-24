@@ -17,6 +17,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapKitView.delegate = self
+        mapKitView.showsScale = true
+        mapKitView.showsPointsOfInterest = true
+        mapKitView.showsUserLocation = true
         
     }
 
