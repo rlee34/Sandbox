@@ -45,6 +45,32 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         directionRequest.source = sourceItem
         directionRequest.destination = destItem
         directionRequest.transportType = .walking
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate(completionHandler: {
+            response, error in
+            
+            guard let response = response else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapKitView.add(route.polyline, level: .aboveRoads)
+            
+            let rekt = route.polyline.boundingMapRect
+            self.mapKitView.setRegion(MKCoordinateRegionForMapRect(rekt), animated: true)
+        })
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 5.0
+        
+        return renderer
     }
 
     override func didReceiveMemoryWarning() {
