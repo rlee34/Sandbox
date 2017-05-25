@@ -36,9 +36,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let destCoordinates = CLLocationCoordinate2DMake(36.1070, -112.1130)
         
         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinates!)
-        let destPlaceamark = MKPlacemark(coordinate: destCoordinates)
+        let destPlacemark = MKPlacemark(coordinate: destCoordinates)
         
+        let sourceItem = MKMapItem(placemark: sourcePlacemark)
+        let destItem = MKMapItem(placemark: destPlacemark)
         
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceItem
+        directionRequest.destination = destItem
+        directionRequest.transportType = .walking
     }
 
     override func didReceiveMemoryWarning() {
