@@ -26,7 +26,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
-    
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+        let sourceCoordinates = locationManager.location?.coordinate
+        let destCoordinates = CLLocationCoordinate2DMake(36.1070, -112.1130)
+        
+        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinates!)
+        let destPlaceamark = MKPlacemark(coordinate: destCoordinates)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
